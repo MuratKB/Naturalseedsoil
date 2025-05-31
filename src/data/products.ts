@@ -37,7 +37,7 @@ export const products: Product[] = [
       },
       {
         question: 'Do you offer samples before bulk ordering?',
-        answer: 'Yes, we provide 100ml samples for quality assessment before proceeding with bulk orders.'
+        answer: 'Yes, we provide 100ml samples for quality assessment before proceeding with bulk orders. Shipping costs are to be paid by the buyer'
       }
     ]
   },
