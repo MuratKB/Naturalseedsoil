@@ -108,7 +108,7 @@ export const products: Product[] = [
       },
       {
         question: 'What mixed herb combinations do you offer?',
-        answer: 'We offer white sage with lavender, rosemary, cedar, palo santo, sweetgrass, and various custom combinations based on client preferences.'
+        answer: 'We offer white sage with lavender, rosemary, cedar, palo santo, sweetgrass, eucalyptus, sage rose and various custom combinations based on client preferences.'
       },
       {
         question: 'Do you provide display materials for retailers?',
