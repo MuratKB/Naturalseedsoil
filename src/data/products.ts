@@ -65,7 +65,7 @@ export const products: Product[] = [
     faq: [
       {
         question: 'What is the thymoquinone percentage in your Black Seed Oil?',
-        answer: 'Our standard Black Seed Oil contains 1.2-1.5% thymoquinone. We also offer a premium grade with 2.0-2.5% thymoquinone content for specialized applications.'
+        answer: 'Our standard Black Seed Oil contains 2- 2.4% thymoquinone. We also offer a premium grade with 3% thymoquinone content for specialized applications.'
       },
       {
         question: 'Is your Black Seed Oil suitable for dietary supplements?',
