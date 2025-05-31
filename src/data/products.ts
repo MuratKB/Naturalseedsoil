@@ -25,7 +25,7 @@ export const products: Product[] = [
     faq: [
       {
         question: 'What makes your laurel berry oil special?',
-        answer: 'Our laurel berry oil is cold-pressed using traditional methods from wild-harvested berries, ensuring maximum retention of beneficial compounds and authentic aroma profile.'
+        answer: 'Our laurel berry oil is produced using traditional methods from wild-harvested berries, ensuring maximum retention of beneficial compounds and an authentic aroma profile.'
       },
       {
         question: 'Is this oil certified organic?',
