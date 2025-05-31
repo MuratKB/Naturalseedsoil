@@ -33,7 +33,7 @@ export const products: Product[] = [
       },
       {
         question: 'What percentage of laurel berry oil is used in your Aleppo soap?',
-        answer: 'We offer various grades, ranging from 5% to 40% laurel berry oil content for soap production. Custom formulations are available for private label clients.'
+        answer: 'We offer various grades, ranging from 20% to 40% laurel berry oil content for soap production. Custom formulations are available for private label clients.'
       },
       {
         question: 'Do you offer samples before bulk ordering?',
