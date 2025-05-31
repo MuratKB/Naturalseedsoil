@@ -5,7 +5,7 @@ export const products: Product[] = [
     id: 'laurel-berry-oil',
     name: 'Laurel Berry Oil',
     shortDescription: 'Traditional laurel berry oil from wild-harvested laurel berries.',
-    description: 'Our authentic Laurel Berry Oil (Defne Yağı) is cold-pressed from wild-harvested laurel berries using traditional methods to preserve all beneficial compounds. This deep green oil is rich in fatty acids and antioxidants, making it the premium choice for natural skincare products, traditional remedies, and the authentic production of Aleppo soap. Each batch is carefully filtered while maintaining its natural potency.',
+    description: 'Our authentic Laurel Berry Oil is traditional from wild-harvested laurel berries using traditional methods to preserve all beneficial compounds. This deep yellow/black oil is rich in fatty acids and antioxidants, making it the premium choice for natural skincare products, traditional remedies, and the authentic production of Aleppo soap. Each batch is carefully filtered while maintaining its natural potency.',
     category: 'carrier-oils',
     imageUrl: 'https://res.cloudinary.com/dbklhd9nn/image/upload/v1748709884/BSO_ncm4dp.jpg',
     bulkOptions: [
