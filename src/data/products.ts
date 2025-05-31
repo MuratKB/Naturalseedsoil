@@ -15,7 +15,7 @@ export const products: Product[] = [
       { size: '200', unit: 'L' }
     ],
     features: [
-      'Traditional cold-pressed extraction method',
+      'Traditional extraction method',
       'Wild-harvested berries from mature laurel trees',
       'No refinement, preserving all natural properties',
       'Rich in beneficial fatty acids and antioxidants',
