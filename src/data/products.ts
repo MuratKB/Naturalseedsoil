@@ -166,7 +166,7 @@ export const products: Product[] = [
     shortDescription: 'Premium, pure Laurus nobilis oil for aromatherapy and skincare products.',
     description: 'Our Bay Leaf Essential Oil is steam-distilled from fresh bay leaves harvested from mature trees grown in optimal climate conditions. This premium oil offers a rich, spicy aroma with subtle eucalyptus notes and is widely used in professional aromatherapy, luxury skincare formulations, and natural perfumery. Each batch is lab-tested for purity and potency.',
     category: 'essential-oils',
-    imageUrl: 'https://images.pexels.com/photos/4041392/pexels-photo-4041392.jpeg',
+    imageUrl: 'https://res.cloudinary.com/dbklhd9nn/image/upload/v1748709884/BSO_ncm4dp.jpg',
     bulkOptions: [
       { size: '5', unit: 'L' },
       { size: '20', unit: 'L' },
