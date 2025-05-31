@@ -144,11 +144,11 @@ export const products: Product[] = [
     faq: [
       {
         question: 'What laurel oil percentages do you offer?',
-        answer: 'We offer Aleppo soap with 5%, 10%, 15%, 20%, 25%, 30%, and 40% laurel berry oil content. Higher percentages are suitable for specialized skincare concerns.'
+        answer: 'We offer Aleppo soap with 20% and 40% laurel berry oil content. Higher percentages are suitable for specialized skincare concerns.'
       },
       {
         question: 'What is the curing time for your Aleppo soap?',
-        answer: 'Our Aleppo soaps are aged for a minimum of 6 months, with premium grades aged for 9 months for optimal hardness and mildness.'
+        answer: 'Our Aleppo soaps are aged for a minimum of 12 months, with premium grades aged for 18 months for optimal hardness and mildness.'
       },
       {
         question: 'Can you create custom shapes or sizes?',
