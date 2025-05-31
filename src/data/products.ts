@@ -152,7 +152,7 @@ export const products: Product[] = [
       },
       {
         question: 'Can you create custom shapes or sizes?',
-        answer: 'Yes, we can produce custom shapes, sizes, and weights for private label clients with minimum orders of 500 pieces.'
+        answer: 'Yes, we can produce custom shapes, sizes, and weights for private label clients with minimum orders of 5000 pieces.'
       },
       {
         question: 'Are your soaps certified organic?',
