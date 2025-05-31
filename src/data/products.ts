@@ -124,7 +124,7 @@ export const products: Product[] = [
     id: 'aleppo-soap',
     name: 'Aleppo Soap',
     shortDescription: 'Traditional handcrafted soap made with olive oil and laurel berry oil.',
-    description: 'Our Aleppo Soap is crafted following centuries-old traditions, combining olive oil with authentic laurel berry oil. Each bar is hand-cut and stamped, then aged for 12-18 months to develop its characteristic hardness and mild aroma. Available in various laurel oil concentrations from 5% to 40%, our soaps cater to different skin types and market segments. Perfect for natural skincare brands, health stores, and premium bath product collections.',
+    description: 'Our Aleppo Soap is crafted following centuries-old traditions, combining olive oil with authentic laurel berry oil. Each bar is hand-cut and stamped, then aged for 12-18 months to develop its characteristic hardness and mild aroma. Available in various laurel oil concentrations from 20% to 40%, our soaps cater to different skin types and market segments. Perfect for natural skincare brands, health stores, and premium bath product collections.',
     category: 'soaps',
     imageUrl: 'https://res.cloudinary.com/dbklhd9nn/image/upload/v1748709884/BSO_ncm4dp.jpg',
     bulkOptions: [
