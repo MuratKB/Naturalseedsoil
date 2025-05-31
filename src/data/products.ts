@@ -95,7 +95,7 @@ export const products: Product[] = [
     ],
     features: [
       'Hand-harvested using sustainable practices',
-      'Available in various sizes (3", 5", 7", 9")',
+      'Available in various sizes (4", 6")',
       'Single herb or mixed herb combinations',
       'Wrapped in natural cotton twine',
       'Properly dried for optimal burning experience',
