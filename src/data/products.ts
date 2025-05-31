@@ -47,7 +47,7 @@ export const products: Product[] = [
     shortDescription: 'Premium cold-pressed Nigella sativa oil with high thymoquinone content.',
     description: 'Our Black Seed Oil is cold-pressed from premium Nigella sativa seeds under controlled temperatures to preserve all bioactive compounds, particularly thymoquinone. This potent oil is renowned for its health benefits and is available in both food-grade and cosmetic-grade options. Ideal for natural supplements, health products, and premium skincare formulations, our Black Seed Oil meets the highest industry standards for purity and potency.',
     category: 'carrier-oils',
-    imageUrl: 'https://images.pexels.com/photos/6969266/pexels-photo-6969266.jpeg',
+    imageUrl: 'https://res.cloudinary.com/dbklhd9nn/image/upload/v1748709884/BSO_ncm4dp.jpg',
     bulkOptions: [
       { size: '5', unit: 'L' },
       { size: '20', unit: 'L' },
