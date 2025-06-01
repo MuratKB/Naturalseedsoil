@@ -87,7 +87,7 @@ export const products: Product[] = [
     shortDescription: 'Premium hand-tied white sage bundles for cleansing and aromatherapy.',
     description: 'Our White Sage Smudge Sticks are carefully hand-harvested and tied using sustainable practices. Each bundle contains mature white sage leaves known for their aromatic properties and traditional use in cleansing rituals. Available in various sizes and combinations with other herbs like lavender, rosemary, or cedar, our smudge sticks are ideal for wellness shops, spiritual stores, and premium home goods retailers.',
     category: 'sage',
-    imageUrl: 'https://res.cloudinary.com/dbklhd9nn/image/upload/v1748709884/BSO_ncm4dp.jpg',
+    imageUrl: 'https://res.cloudinary.com/dbklhd9nn/image/upload/v1748765310/whitesage_ldctpt.jpg',
     bulkOptions: [
       { size: '100', unit: 'pcs', minOrder: 100 },
       { size: '500', unit: 'pcs', minOrder: 50 },
