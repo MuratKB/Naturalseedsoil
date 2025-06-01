@@ -41,15 +41,26 @@ const ContactForm: React.FC<ContactFormProps> = ({ isQuote = false, productName 
     }));
   };
 
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setIsSubmitting(true);
-    
-    // Simulate API call
-    setTimeout(() => {
-      setIsSubmitting(false);
+
+    try {
+      const emailContent = `
+Name: ${formData.name}
+Company: ${formData.company}
+Country: ${formData.country}
+Email: ${formData.email}
+Phone: ${formData.phone}
+Products: ${formData.products.join(', ') || 'None selected'}
+Request Sample: ${formData.requestSample ? 'Yes' : 'No'}
+Message: ${formData.message}
+      `;
+
+      const mailtoLink = `mailto:sales@naturalseedoils.com?subject=${encodeURIComponent(isQuote ? 'Quote Request' : 'Contact Form Submission')}&body=${encodeURIComponent(emailContent)}`;
+      window.location.href = mailtoLink;
+
       setIsSubmitted(true);
-      // Reset form after successful submission
       setFormData({
         name: '',
         company: '',
@@ -60,7 +71,11 @@ const ContactForm: React.FC<ContactFormProps> = ({ isQuote = false, productName 
         products: [],
         requestSample: false,
       });
-    }, 1500);
+    } catch (error) {
+      console.error('Error submitting form:', error);
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -78,7 +93,7 @@ const ContactForm: React.FC<ContactFormProps> = ({ isQuote = false, productName 
           </div>
           <h3 className="text-2xl font-semibold mb-2">Thank You!</h3>
           <p className="text-gray-600 mb-4">
-            Your {isQuote ? 'quote request' : 'message'} has been submitted successfully. Our team will get back to you within 24 hours.
+            Your {isQuote ? 'quote request' : 'message'} has been prepared. Your default email client will open with the message ready to send.
           </p>
           <button
             onClick={() => setIsSubmitted(false)}
@@ -287,8 +302,8 @@ const ContactForm: React.FC<ContactFormProps> = ({ isQuote = false, productName 
             >
               {isSubmitting ? (
                 <span className="flex items-center justify-center">
-                  <svg className="animate-spin -ml-1 mr-3 h-5 w-5 text-white\" xmlns="http://www.w3.org/2000/svg\" fill="none\" viewBox="0 0 24 24">
-                    <circle className="opacity-25\" cx="12\" cy="12\" r="10\" stroke="currentColor\" strokeWidth="4"></circle>
+                  <svg className="animate-spin -ml-1 mr-3 h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                    <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
                     <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
                   </svg>
                   Processing...
