@@ -5,8 +5,7 @@ export const companyInfo = {
   tagline: 'Premium Artisan Oils & Soaps for International B2B',
   description: 'Supplying premium natural oils, traditional soaps, and herbal products to businesses worldwide. Direct from artisan producers to your brand.',
   yearEstablished: 2012,
-  email: 'info@naturalessencewholesale.com',
-  phone: '+90 (242) 123 4567',
+  email: 'contact@naturalessencewholesale.com',
   address: 'Antalya Organized Industrial Zone, 07190 Antalya, Turkey',
 };
 

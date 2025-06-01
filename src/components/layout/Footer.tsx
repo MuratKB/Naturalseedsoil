@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Leaf, Mail, Phone, MapPin, Facebook, Instagram, Linkedin } from 'lucide-react';
+import { Leaf, Mail, MapPin, Facebook, Instagram, Linkedin } from 'lucide-react';
 import { companyInfo } from '../../data/siteContent';
 import { getAllCategories } from '../../data/products';
 
@@ -122,16 +122,10 @@ const Footer: React.FC = () => {
                 <span className="text-gray-400">{companyInfo.address}</span>
               </div>
               <div className="flex items-center">
-                <Phone className="h-5 w-5 text-primary-500 mr-2" />
-                <a href={`tel:${companyInfo.phone}`} className="text-gray-400 hover:text-primary-500 transition-colors">
-                  {companyInfo.phone}
-                </a>
-              </div>
-              <div className="flex items-center">
                 <Mail className="h-5 w-5 text-primary-500 mr-2" />
-                <a href={`mailto:${companyInfo.email}`} className="text-gray-400 hover:text-primary-500 transition-colors">
-                  {companyInfo.email}
-                </a>
+                <Link to="/contact" className="text-gray-400 hover:text-primary-500 transition-colors">
+                  Contact Form
+                </Link>
               </div>
             </div>
           </div>

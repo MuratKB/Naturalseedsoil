@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { motion } from 'framer-motion';
-import { MapPin, Mail, Phone, Clock } from 'lucide-react';
+import { MapPin, Mail, Clock } from 'lucide-react';
 import ContactForm from '../components/shared/ContactForm';
 import { companyInfo } from '../data/siteContent';
 
@@ -12,15 +12,9 @@ const ContactPage: React.FC = () => {
   const contactInfo = [
     {
       icon: <Mail className="h-6 w-6 text-primary-600" />,
-      title: 'Email',
-      content: companyInfo.email,
-      link: `mailto:${companyInfo.email}`,
-    },
-    {
-      icon: <Phone className="h-6 w-6 text-primary-600" />,
-      title: 'Phone',
-      content: companyInfo.phone,
-      link: `tel:${companyInfo.phone.replace(/\s/g, '')}`,
+      title: 'Contact',
+      content: 'Use our contact form to get in touch',
+      link: '#contact-form',
     },
     {
       icon: <MapPin className="h-6 w-6 text-primary-600" />,
@@ -116,7 +110,7 @@ const ContactPage: React.FC = () => {
           </div>
 
           {/* Contact Form */}
-          <div className="lg:col-span-2">
+          <div id="contact-form" className="lg:col-span-2">
             <ContactForm isQuote={true} />
           </div>
         </div>
