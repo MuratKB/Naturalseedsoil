@@ -7,7 +7,7 @@ export const products: Product[] = [
     shortDescription: 'Traditional laurel berry oil from wild-harvested laurel berries.',
     description: 'Our authentic Laurel Berry Oil is traditional from wild-harvested laurel berries using traditional methods to preserve all beneficial compounds. This deep yellow/black oil is rich in fatty acids and antioxidants, making it the premium choice for natural skincare products, traditional remedies, and the authentic production of Aleppo soap. Each batch is carefully filtered while maintaining its natural potency.',
     category: 'carrier-oils',
-    imageUrl: 'https://res.cloudinary.com/dbklhd9nn/image/upload/v1748709884/BSO_ncm4dp.jpg',
+    imageUrl: 'https://res.cloudinary.com/dbklhd9nn/image/upload/v1748765023/LBO_nkpvrn.jpg',
     bulkOptions: [
       { size: '5', unit: 'L' },
       { size: '20', unit: 'L' },
