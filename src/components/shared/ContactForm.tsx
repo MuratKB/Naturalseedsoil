@@ -46,33 +46,40 @@ const ContactForm: React.FC<ContactFormProps> = ({ isQuote = false, productName 
     setIsSubmitting(true);
 
     try {
-      const emailContent = `
-Name: ${formData.name}
-Company: ${formData.company}
-Country: ${formData.country}
-Email: ${formData.email}
-Phone: ${formData.phone}
-Products: ${formData.products.join(', ') || 'None selected'}
-Request Sample: ${formData.requestSample ? 'Yes' : 'No'}
-Message: ${formData.message}
-      `;
-
-      const mailtoLink = `mailto:sales@naturalseedoils.com?subject=${encodeURIComponent(isQuote ? 'Quote Request' : 'Contact Form Submission')}&body=${encodeURIComponent(emailContent)}`;
-      window.location.href = mailtoLink;
-
-      setIsSubmitted(true);
-      setFormData({
-        name: '',
-        company: '',
-        country: '',
-        email: '',
-        phone: '',
-        message: '',
-        products: [],
-        requestSample: false,
+      const formBody = new FormData();
+      Object.entries(formData).forEach(([key, value]) => {
+        if (Array.isArray(value)) {
+          formBody.append(key, value.join(', '));
+        } else {
+          formBody.append(key, value.toString());
+        }
       });
+      formBody.append('form-name', isQuote ? 'quote-request' : 'contact');
+
+      const response = await fetch('/', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: new URLSearchParams(formBody as any).toString(),
+      });
+
+      if (response.ok) {
+        setIsSubmitted(true);
+        setFormData({
+          name: '',
+          company: '',
+          country: '',
+          email: '',
+          phone: '',
+          message: '',
+          products: [],
+          requestSample: false,
+        });
+      } else {
+        throw new Error('Form submission failed');
+      }
     } catch (error) {
       console.error('Error submitting form:', error);
+      alert('There was an error submitting the form. Please try again.');
     } finally {
       setIsSubmitting(false);
     }
@@ -93,7 +100,7 @@ Message: ${formData.message}
           </div>
           <h3 className="text-2xl font-semibold mb-2">Thank You!</h3>
           <p className="text-gray-600 mb-4">
-            Your {isQuote ? 'quote request' : 'message'} has been prepared. Your default email client will open with the message ready to send.
+            Your {isQuote ? 'quote request' : 'message'} has been submitted successfully. Our team will get back to you within 24 hours.
           </p>
           <button
             onClick={() => setIsSubmitted(false)}
@@ -103,7 +110,19 @@ Message: ${formData.message}
           </button>
         </motion.div>
       ) : (
-        <form onSubmit={handleSubmit}>
+        <form
+          onSubmit={handleSubmit}
+          data-netlify="true"
+          name={isQuote ? 'quote-request' : 'contact'}
+          netlify-honeypot="bot-field"
+        >
+          <input type="hidden" name="form-name" value={isQuote ? 'quote-request' : 'contact'} />
+          <p className="hidden">
+            <label>
+              Don't fill this out if you're human: <input name="bot-field" />
+            </label>
+          </p>
+
           <h3 className="text-2xl font-semibold mb-6 font-display">
             {isQuote ? 'Request a Quote' : 'Contact Us'}
           </h3>
@@ -302,8 +321,8 @@ Message: ${formData.message}
             >
               {isSubmitting ? (
                 <span className="flex items-center justify-center">
-                  <svg className="animate-spin -ml-1 mr-3 h-5 w-5 text-white\" xmlns="http://www.w3.org/2000/svg\" fill="none\" viewBox="0 0 24 24">
-                    <circle className="opacity-25\" cx="12\" cy="12\" r="10\" stroke="currentColor\" strokeWidth="4"></circle>
+                  <svg className="animate-spin -ml-1 mr-3 h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                    <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
                     <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
                   </svg>
                   Processing...
