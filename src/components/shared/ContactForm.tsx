@@ -45,7 +45,7 @@ const ContactForm: React.FC<ContactFormProps> = ({ isQuote = false, productName 
     return Object.keys(data)
       .map(key => encodeURIComponent(key) + "=" + encodeURIComponent(data[key]))
       .join("&");
-  }
+  };
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -61,9 +61,7 @@ const ContactForm: React.FC<ContactFormProps> = ({ isQuote = false, productName 
 
       const response = await fetch('/', {
         method: 'POST',
-        headers: { 
-          'Content-Type': 'application/x-www-form-urlencoded',
-        },
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
         body: encode(formDataToSend),
       });
 
@@ -116,11 +114,11 @@ const ContactForm: React.FC<ContactFormProps> = ({ isQuote = false, productName 
         </motion.div>
       ) : (
         <form
-          onSubmit={handleSubmit}
-          data-netlify="true"
           name={isQuote ? 'quote-request' : 'contact'}
           method="POST"
-          netlify-honeypot="bot-field"
+          data-netlify="true"
+          data-netlify-honeypot="bot-field"
+          onSubmit={handleSubmit}
         >
           <input type="hidden" name="form-name" value={isQuote ? 'quote-request' : 'contact'} />
           <p className="hidden">
