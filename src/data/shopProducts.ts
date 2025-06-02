@@ -42,46 +42,60 @@ export const shopProducts: ShopProduct[] = [
     minOrder: 100
   },
   {
-    id: 'white-sage',
-    name: 'White Sage Smudge',
-    description: 'Premium hand-tied white sage bundles, 6 inch (15 cm).',
+    id: 'smudge-sticks',
+    name: 'Premium Smudge Sticks',
+    description: 'Hand-tied premium smudge bundles, 6 inches (15 cm). Minimum order: 100 pieces.',
     image: 'https://res.cloudinary.com/dbklhd9nn/image/upload/v1748765310/whitesage_ldctpt.jpg',
     category: 'sage',
     sizes: [
-      { size: '100', unit: 'pcs', price: 169, inStock: true }
-    ],
-    minOrder: 100
-  },
-  {
-    id: 'desert-sage',
-    name: 'Desert Sage Smudge',
-    description: 'Traditional desert sage bundles, 6 inch (15 cm).',
-    image: 'https://res.cloudinary.com/dbklhd9nn/image/upload/v1748765310/whitesage_ldctpt.jpg',
-    category: 'sage',
-    sizes: [
-      { size: '100', unit: 'pcs', price: 149, inStock: true }
-    ],
-    minOrder: 100
-  },
-  {
-    id: 'lavender-smudge',
-    name: 'Lavender Smudge',
-    description: 'Aromatic lavender smudge bundles, 6 inch (15 cm).',
-    image: 'https://res.cloudinary.com/dbklhd9nn/image/upload/v1748765310/whitesage_ldctpt.jpg',
-    category: 'sage',
-    sizes: [
-      { size: '100', unit: 'pcs', price: 149, inStock: true }
-    ],
-    minOrder: 100
-  },
-  {
-    id: 'rosemary-smudge',
-    name: 'Rosemary Smudge',
-    description: 'Fresh rosemary smudge bundles, 6 inch (15 cm).',
-    image: 'https://res.cloudinary.com/dbklhd9nn/image/upload/v1748765310/whitesage_ldctpt.jpg',
-    category: 'sage',
-    sizes: [
-      { size: '100', unit: 'pcs', price: 149, inStock: true }
+      { 
+        size: 'White Sage', 
+        unit: 'Smudge', 
+        price: 169, 
+        inStock: true 
+      },
+      { 
+        size: 'Desert Sage', 
+        unit: 'Smudge', 
+        price: 149, 
+        inStock: true 
+      },
+      { 
+        size: 'Lavender', 
+        unit: 'Smudge', 
+        price: 149, 
+        inStock: true 
+      },
+      { 
+        size: 'Rosemary', 
+        unit: 'Smudge', 
+        price: 149, 
+        inStock: true 
+      },
+      { 
+        size: 'Cedar', 
+        unit: 'Smudge', 
+        price: 149, 
+        inStock: true 
+      },
+      { 
+        size: 'Eucalyptus', 
+        unit: 'Smudge', 
+        price: 149, 
+        inStock: true 
+      },
+      { 
+        size: 'Sage w Rose', 
+        unit: 'Smudge', 
+        price: 169, 
+        inStock: true 
+      },
+      { 
+        size: 'Sage w Flowers', 
+        unit: 'Smudge', 
+        price: 169, 
+        inStock: true 
+      }
     ],
     minOrder: 100
   }
