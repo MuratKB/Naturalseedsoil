@@ -1,9 +1,9 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { Package, DollarSign, Mail, Truck } from 'lucide-react';
 import { shopProducts } from '../data/shopProducts';
 import { ShopProduct, ProductSize, CheckoutFormData } from '../types/shop';
-import { Link } from 'react-router-dom';
+import { Link, useSearchParams } from 'react-router-dom';
 
 const SHIPPING_COUNTRIES = [
   { code: 'US', name: 'United States' },
@@ -21,6 +21,7 @@ const SHIPPING_COUNTRIES = [
 ];
 
 const ShopPage: React.FC = () => {
+  const [searchParams] = useSearchParams();
   const [selectedProduct, setSelectedProduct] = useState<ShopProduct | null>(null);
   const [selectedSize, setSelectedSize] = useState<ProductSize | null>(null);
   const [quantity, setQuantity] = useState<number>(0);
@@ -37,7 +38,24 @@ const ShopPage: React.FC = () => {
     phone: '',
   });
 
-  const handleSizeSelect = (product: ShopProduct, size: ProductSize) => {
+  useEffect(() => {
+    const productId = searchParams.get('product');
+    if (productId) {
+      const product = shopProducts.find(p => p.id === productId);
+      if (product) {
+        setSelectedProduct(product);
+        const firstSize = product.sizes.find(s => s.price !== undefined);
+        if (firstSize) {
+          setSelectedSize(firstSize);
+          setQuantity(product.minOrder || 1);
+        }
+      }
+    }
+  }, [searchParams]);
+
+  const handleSizeChange = (e: React.ChangeEvent<HTMLSelectElement>, product: ShopProduct) => {
+    const sizeIndex = parseInt(e.target.value);
+    const size = product.sizes[sizeIndex];
     setSelectedProduct(product);
     setSelectedSize(size);
     setQuantity(product.minOrder || 1);
@@ -63,8 +81,6 @@ const ShopPage: React.FC = () => {
 
   const handleCheckoutSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // Here you would integrate with your backend to create a Stripe session
-    // For now, we'll just show a success message
     alert('Order submitted successfully! We will contact you for payment details.');
     setShowCheckout(false);
     setSelectedProduct(null);
@@ -79,7 +95,6 @@ const ShopPage: React.FC = () => {
 
   return (
     <div className="pt-20 pb-16">
-      {/* Header */}
       <div className="bg-primary-700 text-white py-16">
         <div className="container-custom text-center">
           <h1 className="section-title text-white mb-4">Wholesale Products</h1>
@@ -90,7 +105,6 @@ const ShopPage: React.FC = () => {
       </div>
 
       <div className="container-custom py-12">
-        {/* Product Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {shopProducts.map((product) => (
             <motion.div
@@ -112,37 +126,57 @@ const ShopPage: React.FC = () => {
                 <p className="text-gray-600 mb-4">{product.description}</p>
                 
                 <div className="space-y-4">
-                  {product.sizes.map((size) => (
-                    <div key={`${size.size}${size.unit}`} className="flex items-center justify-between">
-                      <span className="font-medium">
-                        {size.size}{size.unit}
-                      </span>
-                      {size.price ? (
-                        <div className="text-right">
-                          <button
-                            onClick={() => handleSizeSelect(product, size)}
-                            className="btn-primary text-sm px-4 py-2"
-                          >
-                            ${size.price.toLocaleString()}
-                          </button>
-                          {product.id === 'laurel-berry-oil' && (
-                            <div className="text-xs text-gray-500 mt-1">
-                              <Truck className="w-3 h-3 inline mr-1" />
-                              Shipping included
-                            </div>
-                          )}
-                        </div>
+                  <div className="flex flex-col space-y-2">
+                    <label htmlFor={`size-${product.id}`} className="text-sm font-medium text-gray-700">
+                      Select Size/Quantity
+                    </label>
+                    <select
+                      id={`size-${product.id}`}
+                      className="input"
+                      onChange={(e) => handleSizeChange(e, product)}
+                      value={selectedProduct?.id === product.id ? 
+                        product.sizes.findIndex(s => s === selectedSize) : 
+                        ''}
+                    >
+                      <option value="">Choose an option</option>
+                      {product.sizes.map((size, index) => (
+                        <option key={index} value={index}>
+                          {size.size}{size.unit} - {size.price ? 
+                            `$${size.price.toLocaleString()}` : 
+                            'Contact for Bulk'}
+                        </option>
+                      ))}
+                    </select>
+                  </div>
+
+                  {selectedProduct?.id === product.id && selectedSize && (
+                    <div className="flex justify-between items-center">
+                      {selectedSize.price ? (
+                        <button
+                          onClick={handleBuyNow}
+                          className="btn-primary w-full"
+                        >
+                          <Package className="w-4 h-4 mr-2" />
+                          Buy Now
+                        </button>
                       ) : (
                         <Link
-                          to="/contact?bulk=true"
-                          className="text-primary-600 hover:text-primary-700 font-medium flex items-center"
+                          to={`/contact?product=${product.id}&bulk=true`}
+                          className="btn-outline w-full flex items-center justify-center"
                         >
-                          <Mail className="w-4 h-4 mr-1" />
+                          <Mail className="w-4 h-4 mr-2" />
                           Contact for Bulk
                         </Link>
                       )}
                     </div>
-                  ))}
+                  )}
+
+                  {product.id === 'laurel-berry-oil' && (
+                    <div className="text-sm text-gray-500 flex items-center justify-center">
+                      <Truck className="w-4 h-4 mr-1" />
+                      Shipping included
+                    </div>
+                  )}
                 </div>
 
                 {product.minOrder && (
@@ -155,7 +189,6 @@ const ShopPage: React.FC = () => {
           ))}
         </div>
 
-        {/* Checkout Modal */}
         {showCheckout && selectedProduct && selectedSize && (
           <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 z-50">
             <div className="bg-white rounded-lg max-w-2xl w-full max-h-[90vh] overflow-y-auto">
@@ -331,7 +364,6 @@ const ShopPage: React.FC = () => {
           </div>
         )}
 
-        {/* Selected Product Details */}
         {selectedProduct && selectedSize && !showCheckout && (
           <div className="fixed bottom-0 left-0 right-0 bg-white border-t shadow-lg p-4 z-40">
             <div className="container-custom">
