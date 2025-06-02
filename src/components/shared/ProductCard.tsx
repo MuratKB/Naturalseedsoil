@@ -6,9 +6,10 @@ import { Product } from '../../types';
 
 interface ProductCardProps {
   product: Product;
+  showShipping?: boolean;
 }
 
-const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
+const ProductCard: React.FC<ProductCardProps> = ({ product, showShipping = false }) => {
   const cardVariants = {
     hidden: { opacity: 0, y: 20 },
     visible: { 
@@ -42,10 +43,12 @@ const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
         <p className="text-gray-600 text-sm mb-4 flex-grow">{product.shortDescription}</p>
 
         <div className="mt-auto space-y-4">
-          <div className="text-sm text-gray-500 flex items-center justify-center">
-            <Truck className="w-4 h-4 mr-1" />
-            Shipping included
-          </div>
+          {showShipping && (
+            <div className="text-sm text-gray-500 flex items-center justify-center">
+              <Truck className="w-4 h-4 mr-1" />
+              Shipping included
+            </div>
+          )}
 
           <Link
             to={`/products/${product.id}`}
