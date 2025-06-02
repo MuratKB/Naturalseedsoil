@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useParams, Link, useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { ArrowLeft, ChevronDown, ChevronUp, FileText } from 'lucide-react';
+import { ArrowLeft, ChevronDown, ChevronUp, FileText, ShoppingCart } from 'lucide-react';
 import { getProductById } from '../data/products';
 import ContactForm from '../components/shared/ContactForm';
 
@@ -123,14 +123,21 @@ const ProductDetailPage: React.FC = () => {
               </ul>
             </div>
 
-            <div>
+            <div className="flex flex-col sm:flex-row gap-4">
               <a 
                 href="#request-quote" 
-                className="btn-primary w-full flex items-center justify-center"
+                className="btn-primary flex-1"
               >
                 <FileText className="w-5 h-5 mr-2" />
                 Request Quote
               </a>
+              <Link 
+                to={`/shop?product=${product.id}`}
+                className="btn-outline flex-1 flex items-center justify-center"
+              >
+                <ShoppingCart className="w-5 h-5 mr-2" />
+                Buy Now
+              </Link>
             </div>
           </div>
         </div>
