@@ -1,3 +1,0 @@
-{
-  "content": "export interface ProductSize {\n  size: string;\n  unit: string;\n  price: number;\n  inStock: boolean;\n}\n\nexport interface ShopProduct {\n  id: string;\n  name: string;\n  description: string;\n  image: string;\n  category: string;\n  sizes: ProductSize[];\n  minOrder?: number;\n}\n\nexport interface CheckoutFormData {\n  name: string;\n  email: string;\n  company: string;\n  address: string;\n  city: string;\n  state: string;\n  country: string;\n  postalCode: string;\n  phone: string;\n}\n"
-}
