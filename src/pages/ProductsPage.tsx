@@ -49,7 +49,6 @@ const ProductsPage: React.FC = () => {
 
   return (
     <div className="pt-20">
-      {/* Banner */}
       <div className="bg-primary-700 text-white py-16">
         <div className="container-custom text-center">
           <h1 className="section-title text-white mb-4">Premium Wholesale Products</h1>
@@ -61,7 +60,6 @@ const ProductsPage: React.FC = () => {
 
       <div className="container-custom py-12">
         <div className="flex flex-col lg:flex-row gap-8">
-          {/* Sidebar Filter - Desktop */}
           <div className="hidden lg:block w-64 flex-shrink-0">
             <div className="bg-white rounded-lg shadow-soft p-6">
               <h3 className="font-semibold text-lg mb-4">Categories</h3>
@@ -83,7 +81,6 @@ const ProductsPage: React.FC = () => {
             </div>
           </div>
 
-          {/* Mobile Filter Button */}
           <div className="lg:hidden mb-4">
             <button
               onClick={toggleMobileFilter}
@@ -93,7 +90,6 @@ const ProductsPage: React.FC = () => {
               Filter Products
             </button>
             
-            {/* Mobile Filter Panel */}
             {isMobileFilterOpen && (
               <div className="mt-2 bg-white rounded-lg shadow-md p-4">
                 <h3 className="font-semibold text-lg mb-2">Categories</h3>
@@ -119,7 +115,6 @@ const ProductsPage: React.FC = () => {
             )}
           </div>
 
-          {/* Product Grid */}
           <div className="flex-grow">
             <div className="mb-6 flex flex-col sm:flex-row justify-between items-start sm:items-center">
               <h2 className="text-2xl font-semibold">
@@ -139,7 +134,11 @@ const ProductsPage: React.FC = () => {
               className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6"
             >
               {filteredProducts.map((product) => (
-                <ProductCard key={product.id} product={product} />
+                <ProductCard 
+                  key={product.id} 
+                  product={product} 
+                  showShipping={true}
+                />
               ))}
             </motion.div>
 
