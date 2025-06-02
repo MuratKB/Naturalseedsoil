@@ -1,5 +1,6 @@
 import { Handler } from '@netlify/functions';
 import Stripe from 'stripe';
+import { shopProducts } from '../../src/data/shopProducts';
 
 const stripe = new Stripe(process.env.STRIPE_SECRET_KEY!, {
   apiVersion: '2023-10-16',
@@ -16,6 +17,31 @@ const handler: Handler = async (event) => {
   try {
     const { productId, size, quantity, customerInfo } = JSON.parse(event.body!);
 
+    // Find product and size
+    const product = shopProducts.find(p => p.id === productId);
+    if (!product) {
+      return {
+        statusCode: 400,
+        body: JSON.stringify({ error: 'Product not found' }),
+      };
+    }
+
+    const sizeOption = product.sizes.find(s => `${s.size}${s.unit}` === size);
+    if (!sizeOption || sizeOption.price === undefined) {
+      return {
+        statusCode: 400,
+        body: JSON.stringify({ error: 'Invalid size or bulk order required' }),
+      };
+    }
+
+    // Validate minimum order quantity
+    if (product.minOrder && quantity < product.minOrder) {
+      return {
+        statusCode: 400,
+        body: JSON.stringify({ error: `Minimum order quantity is ${product.minOrder}` }),
+      };
+    }
+
     // Validate shipping country
     const allowedCountries = ['US', 'CA', 'GB', 'DE', 'FR', 'IT', 'AT', 'SE', 'CH', 'SG', 'TW', 'KR'];
     if (!allowedCountries.includes(customerInfo.country)) {
@@ -27,6 +53,10 @@ const handler: Handler = async (event) => {
       };
     }
 
+    // Calculate total price
+    const unitPrice = sizeOption.price;
+    const totalAmount = unitPrice * quantity;
+
     // Create Stripe checkout session
     const session = await stripe.checkout.sessions.create({
       payment_method_types: ['card'],
@@ -35,9 +65,11 @@ const handler: Handler = async (event) => {
           price_data: {
             currency: 'usd',
             product_data: {
-              name: `${productId} - ${size}`,
+              name: `${product.name} - ${size}`,
+              description: `Quantity: ${quantity}`,
+              images: [product.image],
             },
-            unit_amount: quantity * 100, // Convert to cents
+            unit_amount: totalAmount * 100, // Convert to cents
           },
           quantity: 1,
         },
@@ -52,7 +84,9 @@ const handler: Handler = async (event) => {
       metadata: {
         productId,
         size,
-        quantity,
+        quantity: quantity.toString(),
+        unitPrice: unitPrice.toString(),
+        totalAmount: totalAmount.toString(),
         customerName: customerInfo.name,
         customerCompany: customerInfo.company,
       },
