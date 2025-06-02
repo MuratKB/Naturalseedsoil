@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { ArrowRight } from 'lucide-react';
+import { ArrowRight, Truck } from 'lucide-react';
 import { Product } from '../../types';
 
 interface ProductCardProps {
@@ -41,7 +41,12 @@ const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
         <h3 className="font-display text-xl font-semibold mb-2 text-gray-800">{product.name}</h3>
         <p className="text-gray-600 text-sm mb-4 flex-grow">{product.shortDescription}</p>
 
-        <div className="mt-auto">
+        <div className="mt-auto space-y-4">
+          <div className="text-sm text-gray-500 flex items-center justify-center">
+            <Truck className="w-4 h-4 mr-1" />
+            Shipping included
+          </div>
+
           <Link
             to={`/products/${product.id}`}
             className="btn-primary w-full flex items-center justify-center"
