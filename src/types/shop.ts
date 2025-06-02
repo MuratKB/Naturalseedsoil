@@ -1,28 +1,3 @@
-export interface ProductSize {
-  size: string;
-  unit: string;
-  price?: number;
-  inStock: boolean;
-}
-
-export interface ShopProduct {
-  id: string;
-  name: string;
-  description: string;
-  image: string;
-  category: string;
-  sizes: ProductSize[];
-  minOrder?: number;
-}
-
-export interface CheckoutFormData {
-  name: string;
-  email: string;
-  company: string;
-  address: string;
-  city: string;
-  state: string;
-  country: string;
-  postalCode: string;
-  phone: string;
+{
+  "content": "export interface ProductSize {\n  size: string;\n  unit: string;\n  price: number;\n  inStock: boolean;\n}\n\nexport interface ShopProduct {\n  id: string;\n  name: string;\n  description: string;\n  image: string;\n  category: string;\n  sizes: ProductSize[];\n  minOrder?: number;\n}\n\nexport interface CheckoutFormData {\n  name: string;\n  email: string;\n  company: string;\n  address: string;\n  city: string;\n  state: string;\n  country: string;\n  postalCode: string;\n  phone: string;\n}\n"
 }
