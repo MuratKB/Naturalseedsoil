@@ -12,7 +12,7 @@ const SHIPPING_COUNTRIES = [
   { code: 'DE', name: 'Germany' },
   { code: 'FR', name: 'France' },
   { code: 'IT', name: 'Italy' },
-  { code: 'ES', name: 'Spain' },
+  { code: 'AT', name: 'Austria' },
   { code: 'SE', name: 'Sweden' },
   { code: 'CH', name: 'Switzerland' },
   { code: 'SG', name: 'Singapore' },
