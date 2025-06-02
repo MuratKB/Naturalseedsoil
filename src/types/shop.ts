@@ -3,6 +3,7 @@ export interface ProductSize {
   unit: string;
   price: number;
   inStock: boolean;
+  stockLevel: number;
 }
 
 export interface ShopProduct {
