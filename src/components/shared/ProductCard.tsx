@@ -42,6 +42,17 @@ const ProductCard: React.FC<ProductCardProps> = ({ product, showShipping = false
         <h3 className="font-display text-xl font-semibold mb-2 text-gray-800">{product.name}</h3>
         <p className="text-gray-600 text-sm mb-4 flex-grow">{product.shortDescription}</p>
 
+        <ul className="mb-4 space-y-1">
+          {product.features.slice(0, 3).map((feature, index) => (
+            <li key={index} className="text-sm text-gray-700 flex items-start">
+              <svg className="w-4 h-4 text-primary-600 mr-2 mt-1 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path>
+              </svg>
+              {feature}
+            </li>
+          ))}
+        </ul>
+
         <div className="mt-auto space-y-4">
           {showShipping && (
             <div className="text-sm text-gray-500 flex items-center justify-center">
@@ -52,10 +63,10 @@ const ProductCard: React.FC<ProductCardProps> = ({ product, showShipping = false
 
           <Link
             to={`/products/${product.id}`}
-            className="btn-primary w-full flex items-center justify-center"
+            className="inline-flex items-center text-primary-600 font-medium hover:text-primary-700 transition-colors"
           >
             View Details
-            <ArrowRight className="ml-2 h-4 w-4" />
+            <ArrowRight className="ml-1 h-4 w-4" />
           </Link>
         </div>
       </div>
