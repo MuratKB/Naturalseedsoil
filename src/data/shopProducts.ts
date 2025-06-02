@@ -8,11 +8,11 @@ export const shopProducts: ShopProduct[] = [
     image: 'https://res.cloudinary.com/dbklhd9nn/image/upload/v1748709884/BSO_ncm4dp.jpg',
     category: 'oils',
     sizes: [
-      { size: '5', unit: 'L', price: 159, inStock: true },
-      { size: '10', unit: 'L', price: 295, inStock: true },
-      { size: '20', unit: 'L', price: 559, inStock: true },
-      { size: '30', unit: 'L', price: 819, inStock: true },
-      { size: '100', unit: 'L', price: undefined, inStock: true }
+      { size: '5', unit: 'L', price: 159, inStock: true, stockLevel: 300 },
+      { size: '10', unit: 'L', price: 295, inStock: true, stockLevel: 150 },
+      { size: '20', unit: 'L', price: 559, inStock: true, stockLevel: 75 },
+      { size: '30', unit: 'L', price: 819, inStock: true, stockLevel: 50 },
+      { size: '100', unit: 'L', price: undefined, inStock: true, stockLevel: 15 }
     ]
   },
   {
@@ -22,11 +22,11 @@ export const shopProducts: ShopProduct[] = [
     image: 'https://res.cloudinary.com/dbklhd9nn/image/upload/v1748765023/LBO_nkpvrn.jpg',
     category: 'oils',
     sizes: [
-      { size: '5', unit: 'L', price: 199, inStock: true },
-      { size: '10', unit: 'L', price: 379, inStock: true },
-      { size: '20', unit: 'L', price: 729, inStock: true },
-      { size: '30', unit: 'L', price: 1069, inStock: true },
-      { size: '100', unit: 'L', price: undefined, inStock: true }
+      { size: '5', unit: 'L', price: 199, inStock: true, stockLevel: 100 },
+      { size: '10', unit: 'L', price: 379, inStock: true, stockLevel: 50 },
+      { size: '20', unit: 'L', price: 729, inStock: true, stockLevel: 25 },
+      { size: '30', unit: 'L', price: 1069, inStock: true, stockLevel: 15 },
+      { size: '100', unit: 'L', price: undefined, inStock: true, stockLevel: 5 }
     ]
   },
   {
@@ -36,8 +36,8 @@ export const shopProducts: ShopProduct[] = [
     image: 'https://res.cloudinary.com/dbklhd9nn/image/upload/v1748765448/Alepposoap_ugwisi.jpg',
     category: 'soaps',
     sizes: [
-      { size: '100', unit: 'pcs', price: 195, inStock: true },
-      { size: '300', unit: 'pcs', price: 540, inStock: true }
+      { size: '100', unit: 'pcs', price: 195, inStock: true, stockLevel: 1500 },
+      { size: '300', unit: 'pcs', price: 540, inStock: true, stockLevel: 500 }
     ],
     minOrder: 100
   },
@@ -52,19 +52,22 @@ export const shopProducts: ShopProduct[] = [
         size: '100', 
         unit: 'pcs', 
         price: 169, 
-        inStock: true 
+        inStock: true,
+        stockLevel: 400
       },
       { 
         size: '300', 
         unit: 'pcs', 
         price: 459, 
-        inStock: true 
+        inStock: true,
+        stockLevel: 133
       },
       { 
         size: '500', 
         unit: 'pcs', 
         price: 729, 
-        inStock: true 
+        inStock: true,
+        stockLevel: 80
       }
     ],
     minOrder: 100

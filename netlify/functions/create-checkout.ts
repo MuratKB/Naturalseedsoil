@@ -34,6 +34,17 @@ const handler: Handler = async (event) => {
       };
     }
 
+    // Check stock availability
+    if (!sizeOption.inStock || sizeOption.stockLevel < quantity) {
+      return {
+        statusCode: 400,
+        body: JSON.stringify({ 
+          error: 'Insufficient stock available',
+          availableStock: sizeOption.stockLevel
+        }),
+      };
+    }
+
     // Validate minimum order quantity
     if (product.minOrder && quantity < product.minOrder) {
       return {
