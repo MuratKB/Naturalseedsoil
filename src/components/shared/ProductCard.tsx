@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { ArrowRight } from 'lucide-react';
+import { ArrowRight, ShoppingCart, Mail } from 'lucide-react';
 import { Product } from '../../types';
 
 interface ProductCardProps {
@@ -17,6 +17,10 @@ const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
       transition: { duration: 0.5 }
     }
   };
+
+  const hasLargeBulkOption = product.bulkOptions.some(option => 
+    parseInt(option.size) >= 100
+  );
 
   return (
     <motion.div
@@ -52,10 +56,28 @@ const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
           ))}
         </ul>
 
-        <div className="flex-shrink-0">
+        <div className="flex-shrink-0 space-y-2">
+          <Link
+            to={`/shop?product=${product.id}`}
+            className="w-full btn-primary flex items-center justify-center"
+          >
+            <ShoppingCart className="mr-2 h-4 w-4" />
+            Buy Now
+          </Link>
+          
+          {hasLargeBulkOption && (
+            <Link
+              to={`/contact?product=${product.id}&bulk=true`}
+              className="w-full btn-outline flex items-center justify-center"
+            >
+              <Mail className="mr-2 h-4 w-4" />
+              Contact for Bulk Order
+            </Link>
+          )}
+
           <Link
             to={`/products/${product.id}`}
-            className="inline-flex items-center text-primary-600 font-medium hover:text-primary-700 transition-colors"
+            className="inline-flex items-center text-primary-600 font-medium hover:text-primary-700 transition-colors mt-2"
           >
             View Details
             <ArrowRight className="ml-1 h-4 w-4" />
