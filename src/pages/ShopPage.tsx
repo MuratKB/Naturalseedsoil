@@ -175,12 +175,6 @@ const ShopPage: React.FC = () => {
                     <Truck className="w-4 h-4 mr-1" />
                     Shipping included
                   </div>
-
-                  {product.minOrder && (
-                    <p className="text-sm text-gray-500 mt-4">
-                      Minimum order: {product.minOrder} {product.sizes[0].unit}
-                    </p>
-                  )}
                 </div>
               </div>
             </motion.div>
