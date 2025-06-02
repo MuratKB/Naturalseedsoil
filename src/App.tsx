@@ -7,6 +7,7 @@ import ProductsPage from './pages/ProductsPage';
 import ProductDetailPage from './pages/ProductDetailPage';
 import ContactPage from './pages/ContactPage';
 import AboutPage from './pages/AboutPage';
+import ShopPage from './pages/ShopPage';
 import ScrollToTop from './components/utils/ScrollToTop';
 
 function App() {
@@ -22,6 +23,7 @@ function App() {
             <Route path="/products/:productId" element={<ProductDetailPage />} />
             <Route path="/about" element={<AboutPage />} />
             <Route path="/contact" element={<ContactPage />} />
+            <Route path="/shop" element={<ShopPage />} />
           </Routes>
         </main>
         <Footer />
@@ -30,4 +32,4 @@ function App() {
   );
 }
 
-export default App
+export default App;
