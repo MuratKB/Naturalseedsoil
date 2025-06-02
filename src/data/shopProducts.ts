@@ -49,51 +49,21 @@ export const shopProducts: ShopProduct[] = [
     category: 'sage',
     sizes: [
       { 
-        size: 'White Sage', 
-        unit: 'Smudge', 
+        size: '100', 
+        unit: 'pcs', 
         price: 169, 
         inStock: true 
       },
       { 
-        size: 'Desert Sage', 
-        unit: 'Smudge', 
-        price: 149, 
+        size: '300', 
+        unit: 'pcs', 
+        price: 459, 
         inStock: true 
       },
       { 
-        size: 'Lavender', 
-        unit: 'Smudge', 
-        price: 149, 
-        inStock: true 
-      },
-      { 
-        size: 'Rosemary', 
-        unit: 'Smudge', 
-        price: 149, 
-        inStock: true 
-      },
-      { 
-        size: 'Cedar', 
-        unit: 'Smudge', 
-        price: 149, 
-        inStock: true 
-      },
-      { 
-        size: 'Eucalyptus', 
-        unit: 'Smudge', 
-        price: 129, 
-        inStock: true 
-      },
-      { 
-        size: 'Sage w Rose', 
-        unit: 'Smudge', 
-        price: 169, 
-        inStock: true 
-      },
-      { 
-        size: 'Sage w Flowers', 
-        unit: 'Smudge', 
-        price: 199, 
+        size: '500', 
+        unit: 'pcs', 
+        price: 729, 
         inStock: true 
       }
     ],
