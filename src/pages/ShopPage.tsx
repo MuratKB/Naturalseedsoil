@@ -171,19 +171,17 @@ const ShopPage: React.FC = () => {
                     </div>
                   )}
 
-                  {product.id === 'laurel-berry-oil' && (
-                    <div className="text-sm text-gray-500 flex items-center justify-center">
-                      <Truck className="w-4 h-4 mr-1" />
-                      Shipping included
-                    </div>
+                  <div className="text-sm text-gray-500 flex items-center justify-center">
+                    <Truck className="w-4 h-4 mr-1" />
+                    Shipping included
+                  </div>
+
+                  {product.minOrder && (
+                    <p className="text-sm text-gray-500 mt-4">
+                      Minimum order: {product.minOrder} {product.sizes[0].unit}
+                    </p>
                   )}
                 </div>
-
-                {product.minOrder && (
-                  <p className="text-sm text-gray-500 mt-4">
-                    Minimum order: {product.minOrder} {product.sizes[0].unit}
-                  </p>
-                )}
               </div>
             </motion.div>
           ))}
