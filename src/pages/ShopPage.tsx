@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
-import { Package, DollarSign, Mail, Truck } from 'lucide-react';
+import { Package, DollarSign, Mail, Truck, AlertCircle } from 'lucide-react';
 import { shopProducts } from '../data/shopProducts';
 import { ShopProduct, ProductSize, CheckoutFormData } from '../types/shop';
 import { Link, useSearchParams } from 'react-router-dom';
@@ -67,6 +67,8 @@ const ShopPage: React.FC = () => {
     const value = parseInt(e.target.value);
     if (selectedProduct?.minOrder && value < selectedProduct.minOrder) {
       setQuantity(selectedProduct.minOrder);
+    } else if (selectedSize && value > selectedSize.stockLevel) {
+      setQuantity(selectedSize.stockLevel);
     } else {
       setQuantity(value);
     }
@@ -84,6 +86,12 @@ const ShopPage: React.FC = () => {
     e.preventDefault();
 
     if (!selectedProduct || !selectedSize || !quantity) {
+      return;
+    }
+
+    // Check stock availability
+    if (!selectedSize.inStock || selectedSize.stockLevel < quantity) {
+      alert('Sorry, insufficient stock available.');
       return;
     }
 
@@ -171,33 +179,56 @@ const ShopPage: React.FC = () => {
                     >
                       <option value="">Choose an option</option>
                       {product.sizes.map((size, index) => (
-                        <option key={index} value={index}>
+                        <option 
+                          key={index} 
+                          value={index}
+                          disabled={!size.inStock || size.stockLevel === 0}
+                        >
                           {size.size}{size.unit} - {size.price ? 
                             `$${size.price.toLocaleString()}` : 
-                            'Contact for Bulk'}
+                            'Contact for Bulk'} 
+                          {size.stockLevel === 0 ? ' (Out of Stock)' : 
+                           size.stockLevel <= 100 ? ` (Only ${size.stockLevel} left)` : ''}
                         </option>
                       ))}
                     </select>
                   </div>
 
                   {selectedProduct?.id === product.id && selectedSize && (
-                    <div className="flex justify-between items-center">
-                      {selectedSize.price ? (
-                        <button
-                          onClick={handleBuyNow}
-                          className="btn-primary w-full"
-                        >
-                          <Package className="w-4 h-4 mr-2" />
-                          Buy Now
-                        </button>
+                    <div className="space-y-4">
+                      {selectedSize.stockLevel > 0 ? (
+                        <>
+                          <div className="flex justify-between items-center">
+                            {selectedSize.price ? (
+                              <button
+                                onClick={handleBuyNow}
+                                className="btn-primary w-full"
+                              >
+                                <Package className="w-4 h-4 mr-2" />
+                                Buy Now
+                              </button>
+                            ) : (
+                              <Link
+                                to={`/contact?product=${product.id}&bulk=true`}
+                                className="btn-outline w-full flex items-center justify-center"
+                              >
+                                <Mail className="w-4 h-4 mr-2" />
+                                Contact for Bulk
+                              </Link>
+                            )}
+                          </div>
+                          {selectedSize.stockLevel <= 100 && (
+                            <p className="text-amber-600 text-sm flex items-center justify-center">
+                              <AlertCircle className="w-4 h-4 mr-1" />
+                              Only {selectedSize.stockLevel} units left
+                            </p>
+                          )}
+                        </>
                       ) : (
-                        <Link
-                          to={`/contact?product=${product.id}&bulk=true`}
-                          className="btn-outline w-full flex items-center justify-center"
-                        >
-                          <Mail className="w-4 h-4 mr-2" />
-                          Contact for Bulk
-                        </Link>
+                        <div className="text-red-600 text-sm flex items-center justify-center">
+                          <AlertCircle className="w-4 h-4 mr-1" />
+                          Out of Stock
+                        </div>
                       )}
                     </div>
                   )}
@@ -401,10 +432,14 @@ const ShopPage: React.FC = () => {
                     <input
                       type="number"
                       min={selectedProduct.minOrder || 1}
+                      max={selectedSize.stockLevel}
                       value={quantity}
                       onChange={handleQuantityChange}
                       className="w-20 input py-1 px-2"
                     />
+                    <span className="text-sm text-gray-500">
+                      (Max: {selectedSize.stockLevel})
+                    </span>
                   </div>
                 </div>
                 
@@ -417,6 +452,7 @@ const ShopPage: React.FC = () => {
                   <button
                     onClick={handleBuyNow}
                     className="btn-primary"
+                    disabled={!selectedSize.inStock || selectedSize.stockLevel === 0}
                   >
                     <Package className="w-5 h-5 mr-2" />
                     {selectedSize.price ? 'Buy Now' : 'Contact for Bulk'}
