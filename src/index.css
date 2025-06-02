@@ -60,4 +60,8 @@
   .feature-icon {
     @apply w-12 h-12 rounded-full bg-primary-100 text-primary-600 flex items-center justify-center mb-4;
   }
+
+  .prose {
+    @apply text-lg leading-relaxed;
+  }
 }

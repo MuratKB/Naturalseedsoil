@@ -55,6 +55,14 @@ export default {
         'hero': 'calc(100vh - 80px)',
         'min-hero': 'min-content',
       },
+      typography: {
+        DEFAULT: {
+          css: {
+            maxWidth: 'none',
+            color: 'inherit',
+          },
+        },
+      },
     },
   },
   plugins: [],
