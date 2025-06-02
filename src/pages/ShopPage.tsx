@@ -4,6 +4,7 @@ import { Package, DollarSign, Mail, Truck } from 'lucide-react';
 import { shopProducts } from '../data/shopProducts';
 import { ShopProduct, ProductSize, CheckoutFormData } from '../types/shop';
 import { Link, useSearchParams } from 'react-router-dom';
+import { stripePromise, createCheckoutSession } from '../utils/stripe';
 
 const SHIPPING_COUNTRIES = [
   { code: 'US', name: 'United States' },
@@ -81,11 +82,41 @@ const ShopPage: React.FC = () => {
 
   const handleCheckoutSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    alert('Order submitted successfully! We will contact you for payment details.');
-    setShowCheckout(false);
-    setSelectedProduct(null);
-    setSelectedSize(null);
-    setQuantity(0);
+
+    if (!selectedProduct || !selectedSize || !quantity) {
+      return;
+    }
+
+    try {
+      // Validate country
+      if (!SHIPPING_COUNTRIES.find(c => c.code === formData.country)) {
+        alert('For customers from unlisted countries, please contact us for a custom shipping quote and payment instructions.');
+        return;
+      }
+
+      const stripe = await stripePromise;
+      if (!stripe) {
+        throw new Error('Stripe failed to load');
+      }
+
+      const session = await createCheckoutSession(
+        selectedProduct.id,
+        `${selectedSize.size}${selectedSize.unit}`,
+        quantity,
+        formData
+      );
+
+      const result = await stripe.redirectToCheckout({
+        sessionId: session.sessionId,
+      });
+
+      if (result.error) {
+        throw new Error(result.error.message);
+      }
+    } catch (error) {
+      console.error('Error:', error);
+      alert('An error occurred. Please try again or contact support.');
+    }
   };
 
   const calculateTotal = () => {
