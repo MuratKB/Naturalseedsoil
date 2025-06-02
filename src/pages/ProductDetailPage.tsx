@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useParams, Link, useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { ArrowLeft, ChevronDown, ChevronUp, FileText, ShoppingCart } from 'lucide-react';
+import { ArrowLeft, ChevronDown, ChevronUp, FileText } from 'lucide-react';
 import { getProductById } from '../data/products';
 import ContactForm from '../components/shared/ContactForm';
 
@@ -21,24 +21,18 @@ const ProductDetailPage: React.FC = () => {
     
     setActiveImageUrl(product.imageUrl);
     document.title = `${product.name} | Natural Essence Wholesale`;
-    
-    // Simulate additional product images for demo purposes
-    // In a real app, these would come from the product data
   }, [product, navigate]);
 
   if (!product) {
-    return null; // Navigate will happen in useEffect
+    return null;
   }
 
   const toggleFaq = (index: number) => {
     setOpenFaqIndex(openFaqIndex === index ? null : index);
   };
 
-  // Generate additional image URLs for the demo
-  // In a real application, these would come from the product data
   const productImages = [
     product.imageUrl,
-    // Using different Pexels images as examples of additional product views
     'https://images.pexels.com/photos/4465124/pexels-photo-4465124.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260',
     'https://images.pexels.com/photos/6621460/pexels-photo-6621460.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260',
   ];
@@ -47,9 +41,7 @@ const ProductDetailPage: React.FC = () => {
 
   return (
     <div className="pt-20 pb-16">
-      {/* Product Detail Section */}
       <div className="container-custom">
-        {/* Breadcrumbs */}
         <nav className="flex py-4 text-sm">
           <Link to="/" className="text-gray-500 hover:text-primary-600">Home</Link>
           <span className="mx-2 text-gray-500">/</span>
@@ -66,7 +58,6 @@ const ProductDetailPage: React.FC = () => {
         </nav>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
-          {/* Product Images */}
           <div>
             <div className="bg-white rounded-lg shadow-soft overflow-hidden mb-4">
               <img 
@@ -91,7 +82,6 @@ const ProductDetailPage: React.FC = () => {
             </div>
           </div>
 
-          {/* Product Info */}
           <div>
             <h1 className="text-3xl md:text-4xl font-bold mb-2 font-display">{product.name}</h1>
             <p className="text-primary-600 font-medium mb-4">{categoryName}</p>
@@ -133,27 +123,18 @@ const ProductDetailPage: React.FC = () => {
               </ul>
             </div>
 
-            <div className="flex flex-col sm:flex-row gap-4">
+            <div>
               <a 
                 href="#request-quote" 
-                className="btn-primary"
+                className="btn-primary w-full flex items-center justify-center"
               >
                 <FileText className="w-5 h-5 mr-2" />
                 Request Quote
-              </a>
-              <a 
-                href="#request-quote" 
-                className="btn-outline"
-                onClick={() => document.getElementById('requestSample')?.click()}
-              >
-                <ShoppingCart className="w-5 h-5 mr-2" />
-                Order Sample
               </a>
             </div>
           </div>
         </div>
 
-        {/* FAQ Section */}
         <div className="mt-16">
           <h2 className="text-2xl font-semibold mb-6">Frequently Asked Questions</h2>
           <div className="space-y-4 max-w-3xl">
@@ -180,13 +161,10 @@ const ProductDetailPage: React.FC = () => {
           </div>
         </div>
 
-        {/* Request Quote Form */}
         <div id="request-quote" className="mt-16 max-w-3xl mx-auto">
           <h2 className="text-2xl font-semibold mb-6">Interested in {product.name}?</h2>
           <ContactForm isQuote={true} productName={product.name} />
         </div>
-
-        {/* Related Products will go here in a full implementation */}
 
         <div className="mt-12">
           <Link to="/products" className="inline-flex items-center text-primary-600 hover:text-primary-700">
