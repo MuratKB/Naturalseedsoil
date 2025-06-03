@@ -21,7 +21,7 @@ const AboutPage: React.FC = () => {
         <div className="container-custom text-center">
           <h1 className="section-title text-white mb-4">About Us</h1>
           <p className="text-primary-100 text-xl max-w-3xl mx-auto">
-            Learn about our journey, values, and commitment to providing premium natural products
+            US-registered producer and exporter. Owns white sage & lavender farms, black seed oil production, and Aleppo soap factory in Turkey. Lab-tested, direct-from-farm quality. Fast global shipping. Sales and support via Florida, USA office.
           </p>
         </div>
       </div>
