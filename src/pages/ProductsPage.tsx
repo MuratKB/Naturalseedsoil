@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useSearchParams } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { Filter } from 'lucide-react';
+import { Filter, CheckCircle2 } from 'lucide-react';
 import ProductCard from '../components/shared/ProductCard';
 import { products, getAllCategories } from '../data/products';
 
@@ -47,6 +47,14 @@ const ProductsPage: React.FC = () => {
     },
   };
 
+  const essentialOils = [
+    'Lavender Essential Oil (Angustifolia)',
+    'Oregano Essential Oil (High Carvacrol)',
+    'Rosemary Essential Oil (Officinalis)',
+    'Bay Leaf Essential Oil (High Alpha Cineole)',
+    'Sage Essential Oil (Officinalis)',
+  ];
+
   return (
     <div className="pt-20">
       <div className="bg-primary-700 text-white py-16">
@@ -60,7 +68,7 @@ const ProductsPage: React.FC = () => {
 
       <div className="container-custom py-12">
         <div className="flex flex-col lg:flex-row gap-8">
-          <div className="hidden lg:block w-64 flex-shrink-0">
+          <div className="hidden lg:block w-64 flex-shrink-0 space-y-6">
             <div className="bg-white rounded-lg shadow-soft p-6">
               <h3 className="font-semibold text-lg mb-4">Categories</h3>
               <div className="space-y-2">
@@ -79,6 +87,27 @@ const ProductsPage: React.FC = () => {
                 ))}
               </div>
             </div>
+
+            {selectedCategory === 'essential-oils' && (
+              <div className="bg-white rounded-lg shadow-soft p-6">
+                <h3 className="font-semibold text-lg mb-4">Available Essential Oils</h3>
+                <div className="space-y-3">
+                  {essentialOils.map((oil, index) => (
+                    <div key={index} className="flex items-start">
+                      <CheckCircle2 className="w-5 h-5 text-primary-600 mt-0.5 mr-2 flex-shrink-0" />
+                      <span className="text-gray-700">{oil}</span>
+                    </div>
+                  ))}
+                  <p className="text-sm text-gray-600 mt-4 pt-4 border-t">
+                    If you're interested in any of these essential oils, please{' '}
+                    <a href="#contact" className="text-primary-600 hover:text-primary-700">
+                      contact us
+                    </a>{' '}
+                    via the contact form for more information or a quote.
+                  </p>
+                </div>
+              </div>
+            )}
           </div>
 
           <div className="lg:hidden mb-4">
@@ -111,6 +140,20 @@ const ProductsPage: React.FC = () => {
                     </button>
                   ))}
                 </div>
+
+                {selectedCategory === 'essential-oils' && (
+                  <div className="mt-4 pt-4 border-t">
+                    <h3 className="font-semibold text-lg mb-2">Available Essential Oils</h3>
+                    <div className="space-y-2">
+                      {essentialOils.map((oil, index) => (
+                        <div key={index} className="flex items-start">
+                          <CheckCircle2 className="w-4 h-4 text-primary-600 mt-0.5 mr-2 flex-shrink-0" />
+                          <span className="text-sm text-gray-700">{oil}</span>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                )}
               </div>
             )}
           </div>
