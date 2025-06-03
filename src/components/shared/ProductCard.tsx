@@ -1,15 +1,14 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { ArrowRight, Truck } from 'lucide-react';
+import { ArrowRight } from 'lucide-react';
 import { Product } from '../../types';
 
 interface ProductCardProps {
   product: Product;
-  showShipping?: boolean;
 }
 
-const ProductCard: React.FC<ProductCardProps> = ({ product, showShipping = false }) => {
+const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
   const cardVariants = {
     hidden: { opacity: 0, y: 20 },
     visible: { 
@@ -53,14 +52,7 @@ const ProductCard: React.FC<ProductCardProps> = ({ product, showShipping = false
           ))}
         </ul>
 
-        <div className="mt-auto space-y-4">
-          {showShipping && (
-            <div className="text-sm text-gray-500 flex items-center justify-center">
-              <Truck className="w-4 h-4 mr-1" />
-              Shipping included
-            </div>
-          )}
-
+        <div className="mt-auto">
           <Link
             to={`/products/${product.id}`}
             className="inline-flex items-center text-primary-600 font-medium hover:text-primary-700 transition-colors"

@@ -148,8 +148,7 @@ const ProductsPage: React.FC = () => {
                 {filteredProducts.map((product) => (
                   <ProductCard 
                     key={product.id} 
-                    product={product} 
-                    showShipping={true}
+                    product={product}
                   />
                 ))}
 
