@@ -38,14 +38,14 @@ export const shopProducts: ShopProduct[] = [
     sizes: [
       { 
         size: '100', 
-        unit: 'piece bundle', 
+        unit: 'pieces', 
         price: 195, 
         inStock: true, 
         stockLevel: 1500 
       },
       { 
         size: '300', 
-        unit: 'piece bundle', 
+        unit: 'pieces', 
         price: 540, 
         inStock: true, 
         stockLevel: 500 
