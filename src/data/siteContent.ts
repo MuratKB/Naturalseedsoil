@@ -113,11 +113,11 @@ export const faqGeneral = [
   },
   {
     question: 'What payment methods do you accept?',
-    answer: 'We accept secure payments through Stripe, wire transfers, and letter of credit for larger orders. A 50% deposit is required to begin production, with the balance due before shipping.'
+    answer: 'We accept secure payments through Stripe, wire transfers, PayPal.'
   },
   {
     question: 'What are the lead times for orders?',
-    answer: 'Standard lead time is 2-3 weeks for oils and 3-4 weeks for soaps after payment confirmation. Express production is available for certain products at an additional cost.'
+    answer: 'For small orders lead time: 3-4 days for bulk orders 2-3 weeks'
   },
   {
     question: 'Do you offer private labeling?',
@@ -125,7 +125,7 @@ export const faqGeneral = [
   },
   {
     question: 'Are your products certified organic?',
-    answer: 'We offer both conventional and certified organic options for most products. Our organic lines carry USDA Organic, EU Organic, and COSMOS certifications as applicable.'
+    answer: 'We issue phytosanitary or heath certificates for oils for bulk.'
   },
   {
     question: 'Can I request product samples?',
