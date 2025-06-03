@@ -113,22 +113,22 @@ const AboutPage: React.FC = () => {
             {[
               {
                 title: 'Careful Sourcing',
-                description: 'We partner only with skilled artisans who follow traditional production methods and use premium raw materials.',
+                description: 'We cultivate our own white sage, lavender, and rosemary, and craft Aleppo soap and black seed oil in our workshop.',
                 image: 'https://images.pexels.com/photos/3626622/pexels-photo-3626622.jpeg'
               },
               {
-                title: 'Rigorous Testing',
-                description: 'Every batch undergoes comprehensive lab testing for purity, composition, and consistency.',
+                title: 'Seasonal Lab Testing',
+                description: 'We conduct lab tests on our products for purity and quality. Test reports are available upon request.',
                 image: 'https://images.pexels.com/photos/8326366/pexels-photo-8326366.jpeg'
               },
               {
                 title: 'Quality Control',
-                description: 'Our quality assurance team inspects products at multiple stages to ensure they meet our strict standards.',
+                description: 'Every batch is checked at multiple stages, from harvest to packaging, to ensure premium quality.',
                 image: 'https://images.pexels.com/photos/7723583/pexels-photo-7723583.jpeg'
               },
               {
                 title: 'Documentation',
-                description: 'Complete transparency with comprehensive documentation for every shipment.',
+                description: 'All shipments include export documents. Health or phytosanitary certificates can be provided for bulk orders.',
                 image: 'https://images.pexels.com/photos/6883847/pexels-photo-6883847.jpeg'
               },
             ].map((step, index) => (
