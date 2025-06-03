@@ -2,46 +2,6 @@ import { Product } from '../types';
 
 export const products: Product[] = [
   {
-    id: 'laurel-berry-oil',
-    name: 'Laurel Berry Oil',
-    shortDescription: 'Traditional laurel berry oil from wild-harvested laurel berries.',
-    description: 'Our authentic Laurel Berry Oil is traditional from wild-harvested laurel berries using traditional methods to preserve all beneficial compounds. This deep yellow/black oil is rich in fatty acids and antioxidants, making it the premium choice for natural skincare products, traditional remedies, and the authentic production of Aleppo soap. Each batch is carefully filtered while maintaining its natural potency.',
-    category: 'carrier-oils',
-    imageUrl: 'https://res.cloudinary.com/dbklhd9nn/image/upload/v1748765023/LBO_nkpvrn.jpg',
-    bulkOptions: [
-      { size: '5', unit: 'L' },
-      { size: '20', unit: 'L' },
-      { size: '50', unit: 'L' },
-      { size: '200', unit: 'L' }
-    ],
-    features: [
-      'Traditional extraction method',
-      'Wild-harvested berries from mature laurel trees',
-      'No refinement, preserving all natural properties',
-      'Rich in beneficial fatty acids and antioxidants',
-      'Perfect base oil for premium natural cosmetics',
-      'The authentic ingredient for traditional Aleppo soap'
-    ],
-    faq: [
-      {
-        question: 'What makes your laurel berry oil special?',
-        answer: 'Our laurel berry oil is produced using traditional methods from wild-harvested berries, ensuring maximum retention of beneficial compounds and an authentic aroma profile.'
-      },
-      {
-        question: 'Is this oil certified organic?',
-        answer: 'Our laurel berries are wild-harvested from naturally growing trees without pesticides or fertilizers. We offer both standard and certified organic options.'
-      },
-      {
-        question: 'What percentage of laurel berry oil is used in your Aleppo soap?',
-        answer: 'We offer various grades, ranging from 20% to 40% laurel berry oil content for soap production. Custom formulations are available for private label clients.'
-      },
-      {
-        question: 'Do you offer samples before bulk ordering?',
-        answer: 'Yes, we provide 100ml samples for quality assessment before proceeding with bulk orders. Shipping costs are to be paid by the buyer'
-      }
-    ]
-  },
-  {
     id: 'black-seed-oil',
     name: 'Black Seed Oil',
     shortDescription: 'Premium cold-pressed Nigella sativa oil with high thymoquinone content.',
@@ -50,73 +10,76 @@ export const products: Product[] = [
     imageUrl: 'https://res.cloudinary.com/dbklhd9nn/image/upload/v1748709884/BSO_ncm4dp.jpg',
     bulkOptions: [
       { size: '5', unit: 'L' },
+      { size: '10', unit: 'L' },
       { size: '20', unit: 'L' },
-      { size: '50', unit: 'L' },
-      { size: '200', unit: 'L' }
+      { size: '30', unit: 'L' },
+      { size: '100', unit: 'L' }
     ],
     features: [
       'Cold-pressed to preserve bioactive compounds',
-      'Available in food-grade and cosmetic-grade options',
-      'High thymoquinone content verified by lab testing',
-      'Sourced from premium quality Nigella sativa seeds',
-      'Perfect for health supplements and skincare products',
-      'Consistent quality across all batch sizes'
+      'High thymoquinone content (2.2-2.4%)',
+      'Available in food-grade and cosmetic-grade',
+      'Lab-tested for purity and potency',
+      'Bulk quantities available',
+      'International shipping'
     ],
     faq: [
       {
-        question: 'What is the thymoquinone percentage in your Black Seed Oil?',
-        answer: 'Our standard Black Seed Oil contains 2- 2.4% thymoquinone. We also offer a premium grade with 3% thymoquinone content for specialized applications.'
+        question: 'What is the thymoquinone percentage?',
+        answer: 'Our standard Black Seed Oil contains 2.2-2.4% thymoquinone. Premium grade with 3% thymoquinone available for specialized applications.'
       },
       {
-        question: 'Is your Black Seed Oil suitable for dietary supplements?',
-        answer: 'Yes, our food-grade Black Seed Oil is specifically produced for dietary supplements and comes with all necessary documentation for regulatory compliance.'
+        question: 'Do you provide lab reports?',
+        answer: 'Yes, each batch comes with a Certificate of Analysis (COA) showing thymoquinone content and purity parameters.'
       },
       {
-        question: 'Do you offer organic certified Black Seed Oil?',
-        answer: 'Yes, we offer both conventional and certified organic options, with the latter carrying USDA Organic and EU Organic certifications.'
+        question: 'What is the minimum order quantity?',
+        answer: 'Minimum order is 5L for standard orders. Custom quantities available for bulk orders.'
       },
       {
-        question: 'What type of packaging is available for private label?',
-        answer: 'We offer amber glass bottles ranging from 50ml to 250ml, as well as custom packaging solutions including branded labels and boxes.'
+        question: 'How is it packaged?',
+        answer: 'Shipped in food-grade HDPE drums or IBC containers based on quantity. Custom packaging available.'
       }
     ]
   },
   {
-    id: 'white-sage-smudge',
-    name: 'White Sage Smudge Sticks',
-    shortDescription: 'Premium hand-tied white sage bundles for cleansing and aromatherapy.',
-    description: 'Our White Sage Smudge Sticks are carefully hand-harvested and tied using sustainable practices. Each bundle contains mature white sage leaves known for their aromatic properties and traditional use in cleansing rituals. Available in various sizes and combinations with other herbs like lavender, rosemary, or cedar, our smudge sticks are ideal for wellness shops, spiritual stores, and premium home goods retailers.',
-    category: 'sage',
-    imageUrl: 'https://res.cloudinary.com/dbklhd9nn/image/upload/v1748765310/whitesage_ldctpt.jpg',
+    id: 'laurel-berry-oil',
+    name: 'Laurel Berry Oil',
+    shortDescription: 'Traditional laurel berry oil from wild-harvested laurel berries.',
+    description: 'Our authentic Laurel Berry Oil is produced from wild-harvested laurel berries using traditional methods to preserve all beneficial compounds. This deep yellow/black oil is rich in fatty acids and antioxidants, making it the premium choice for natural skincare products, traditional remedies, and authentic Aleppo soap production. Each batch is carefully filtered while maintaining its natural potency.',
+    category: 'carrier-oils',
+    imageUrl: 'https://res.cloudinary.com/dbklhd9nn/image/upload/v1748765023/LBO_nkpvrn.jpg',
     bulkOptions: [
-      { size: '100', unit: 'pcs', minOrder: 100 },
-      { size: '500', unit: 'pcs', minOrder: 50 },
-      { size: '1000', unit: 'pcs', minOrder: 25 }
+      { size: '5', unit: 'L' },
+      { size: '10', unit: 'L' },
+      { size: '20', unit: 'L' },
+      { size: '30', unit: 'L' },
+      { size: '100', unit: 'L' }
     ],
     features: [
-      'Hand-harvested using sustainable practices',
-      'Available in various sizes (4", 6")',
-      'Single herb or mixed herb combinations',
-      'Wrapped in natural cotton twine',
-      'Properly dried for optimal burning experience',
-      'Custom packaging available for retail-ready presentation'
+      'Traditional extraction method',
+      'Wild-harvested berries',
+      'No refinement process',
+      'Rich in beneficial compounds',
+      'Perfect for Aleppo soap',
+      'Bulk quantities available'
     ],
     faq: [
       {
-        question: 'Are your sage products sustainably harvested?',
-        answer: 'Yes, we work with harvesters who follow sustainable practices, never harvesting more than 30% from any single plant and focusing on mature plants only.'
+        question: 'What makes your laurel berry oil special?',
+        answer: 'Our laurel berry oil is produced using traditional methods from wild-harvested berries, ensuring maximum retention of beneficial compounds.'
       },
       {
-        question: 'What mixed herb combinations do you offer?',
-        answer: 'We offer white sage with lavender, rosemary, cedar, palo santo, sweetgrass, eucalyptus, sage rose and various custom combinations based on client preferences.'
+        question: 'Is this oil suitable for soap making?',
+        answer: 'Yes, our laurel berry oil is perfect for traditional Aleppo soap production, available in various grades.'
       },
       {
-        question: 'Do you provide display materials for retailers?',
-        answer: 'Yes, we offer complimentary counter displays with bulk orders of 500+ pieces, including informational cards explaining traditional uses.'
+        question: 'Do you offer samples?',
+        answer: 'Yes, we provide 100ml samples for quality assessment. Shipping costs apply.'
       },
       {
-        question: 'How should the smudge sticks be stored?',
-        answer: 'Our smudge sticks should be stored in a cool, dry place away from direct sunlight. They have a shelf life of approximately 2 years when properly stored.'
+        question: 'What is the minimum order?',
+        answer: 'Minimum order is 5L. Bulk orders of 100L+ receive preferential pricing.'
       }
     ]
   },
@@ -124,79 +87,78 @@ export const products: Product[] = [
     id: 'aleppo-soap',
     name: 'Aleppo Soap',
     shortDescription: 'Traditional handcrafted soap made with olive oil and laurel berry oil.',
-    description: 'Our Aleppo Soap is crafted following centuries-old traditions, combining olive oil with authentic laurel berry oil. Each bar is hand-cut and stamped, then aged for 12-18 months to develop its characteristic hardness and mild aroma. Available in various laurel oil concentrations from 20% to 40%, our soaps cater to different skin types and market segments. Perfect for natural skincare brands, health stores, and premium bath product collections.',
+    description: 'Our Aleppo Soap is crafted following centuries-old traditions, combining olive oil with authentic laurel berry oil. Each bar is hand-cut and stamped, then aged for 12-18 months to develop its characteristic hardness and mild aroma. Available in various laurel oil concentrations from 20% to 40%, our soaps cater to different skin types and market segments.',
     category: 'soaps',
     imageUrl: 'https://res.cloudinary.com/dbklhd9nn/image/upload/v1748765448/Alepposoap_ugwisi.jpg',
     bulkOptions: [
-      { size: '50', unit: 'pcs', minOrder: 100 },
-      { size: '100', unit: 'pcs', minOrder: 100 },
-      { size: '500', unit: 'pcs', minOrder: 50 },
-      { size: '1000', unit: 'pcs', minOrder: 20 }
+      { size: '100', unit: 'pcs' },
+      { size: '300', unit: 'pcs' },
+      { size: '500', unit: 'pcs' },
+      { size: '1000', unit: 'pcs' }
     ],
     features: [
-      'Traditional handmade production process',
-      'Various laurel oil percentages (20%-40%)',
-      'Naturally aged for 12-18 months',
-      'No artificial additives, colorants, or fragrances',
-      'Available in various shapes and weights',
-      'Custom stamps and packaging available for private label'
+      'Traditional handmade process',
+      '20-40% laurel oil content',
+      'Aged 12-18 months',
+      'No artificial additives',
+      'Custom stamps available',
+      'Bulk quantities'
     ],
     faq: [
       {
         question: 'What laurel oil percentages do you offer?',
-        answer: 'We offer Aleppo soap with 20% and 40% laurel berry oil content. Higher percentages are suitable for specialized skincare concerns.'
+        answer: 'We offer 20%, 30%, and 40% laurel oil content. Custom formulations available for bulk orders.'
       },
       {
-        question: 'What is the curing time for your Aleppo soap?',
-        answer: 'Our Aleppo soaps are aged for a minimum of 12 months, with premium grades aged for 18 months for optimal hardness and mildness.'
+        question: 'How long is the soap aged?',
+        answer: 'Our soaps are aged for 12-18 months to achieve optimal hardness and mildness.'
       },
       {
-        question: 'Can you create custom shapes or sizes?',
-        answer: 'Yes, we can produce custom shapes, sizes, and weights for private label clients with minimum orders of 5000 pieces.'
+        question: 'Can you create custom shapes?',
+        answer: 'Yes, we offer custom shapes, sizes, and stamps for orders over 5000 pieces.'
       },
       {
-        question: 'Are your soaps certified organic?',
-        answer: 'We offer both traditional and certified organic Aleppo soaps. Our organic line uses certified organic olive oil and laurel berry oil with appropriate certifications.'
+        question: 'What is the minimum order?',
+        answer: 'Minimum order is 100 pieces. Volume discounts start at 1000 pieces.'
       }
     ]
   },
   {
-    id: 'bay-leaf-oil',
-    name: 'Bay Leaf Essential Oil',
-    shortDescription: 'Premium, pure Laurus nobilis oil for aromatherapy and skincare products.',
-    description: 'Our Bay Leaf Essential Oil is steam-distilled from fresh bay leaves harvested from mature trees grown in optimal climate conditions. This premium oil offers a rich, spicy aroma with subtle eucalyptus notes and is widely used in professional aromatherapy, luxury skincare formulations, and natural perfumery. Each batch is lab-tested for purity and potency.',
-    category: 'essential-oils',
-    imageUrl: 'https://res.cloudinary.com/dbklhd9nn/image/upload/v1748765539/bay_leaf_tlkctk.jpg',
+    id: 'white-sage-smudge',
+    name: 'White Sage Smudge',
+    shortDescription: 'Premium hand-tied white sage bundles for cleansing and aromatherapy.',
+    description: 'Our White Sage Smudge Sticks are carefully hand-harvested and tied using sustainable practices. Each bundle contains mature white sage leaves known for their aromatic properties and traditional use in cleansing rituals. Available in various sizes and combinations with other herbs like lavender or cedar.',
+    category: 'sage',
+    imageUrl: 'https://res.cloudinary.com/dbklhd9nn/image/upload/v1748765310/whitesage_ldctpt.jpg',
     bulkOptions: [
-      { size: '5', unit: 'L' },
-      { size: '20', unit: 'L' },
-      { size: '50', unit: 'L' },
-      { size: '200', unit: 'L' }
+      { size: '100', unit: 'pcs' },
+      { size: '300', unit: 'pcs' },
+      { size: '500', unit: 'pcs' }
     ],
     features: [
-      'Artisan-distilled for maximum potency',
-      '100% pure, no additives or dilutions',
-      'Lab-tested for purity and consistency',
-      'Available in food-grade quality',
-      'Sustainable harvesting practices',
-      'Custom private label packaging available'
+      'Sustainably harvested',
+      'Hand-tied bundles',
+      'Premium quality leaves',
+      'Various sizes available',
+      'Mixed herb options',
+      'Bulk quantities'
     ],
     faq: [
       {
-        question: 'What is the minimum order quantity?',
-        answer: 'Our minimum order quantity for essential oils is 5 liters. For private label requests, minimum quantities start at 20 liters.'
+        question: 'Are your sage products sustainably harvested?',
+        answer: 'Yes, we follow sustainable harvesting practices, never taking more than 30% from any plant.'
       },
       {
-        question: 'Do you provide lab analysis certificates?',
-        answer: 'Yes, each batch comes with a full Certificate of Analysis (COA) that includes GC/MS results and all relevant quality parameters.'
+        question: 'What sizes are available?',
+        answer: 'We offer 4", 6", and 8" bundles. Custom sizes available for bulk orders.'
       },
       {
-        question: 'What is the shelf life?',
-        answer: 'When stored properly in dark, cool conditions, our Bay Leaf Essential Oil maintains its quality for up to 3 years.'
+        question: 'Do you offer mixed herb bundles?',
+        answer: 'Yes, we offer combinations with lavender, cedar, and other herbs.'
       },
       {
-        question: 'Can you ship to the United States?',
-        answer: 'Yes, we ship worldwide including the United States, Canada, and all European countries with all necessary export documentation.'
+        question: 'What is the minimum order?',
+        answer: 'Minimum order is 100 pieces. Bulk discounts start at 500 pieces.'
       }
     ]
   }
