@@ -2,6 +2,22 @@ import { ShopProduct } from '../types/shop';
 
 export const shopProducts: ShopProduct[] = [
   {
+    id: 'test-product',
+    name: 'Test Product ($1)',
+    description: 'This is a test product for payment system verification. Will be removed after 1 hour.',
+    image: 'https://images.pexels.com/photos/6621312/pexels-photo-6621312.jpeg',
+    category: 'test',
+    sizes: [
+      { 
+        size: '1', 
+        unit: 'pc', 
+        price: 1, 
+        inStock: true, 
+        stockLevel: 100 
+      }
+    ]
+  },
+  {
     id: 'black-seed-oil',
     name: 'Black Seed Oil',
     description: 'Premium cold-pressed Nigella sativa oil with high thymoquinone content (2.2-2.4%). For higher TQ levels, please contact us.',
