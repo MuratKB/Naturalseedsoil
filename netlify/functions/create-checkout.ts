@@ -26,7 +26,7 @@ const handler: Handler = async (event) => {
       };
     }
 
-    const sizeOption = product.sizes.find(s => `${s.size}${s.unit}` === size);
+    const sizeOption = product.sizes.find(s => `${s.size} ${s.unit}` === size);
     if (!sizeOption || sizeOption.price === undefined) {
       return {
         statusCode: 400,
@@ -64,9 +64,9 @@ const handler: Handler = async (event) => {
       };
     }
 
-    // Calculate total price
+    // Calculate total price - for smudge sticks, we use the price as is since it's already for 100pcs
     const unitPrice = sizeOption.price;
-    const totalAmount = unitPrice * quantity;
+    const totalAmount = unitPrice;
 
     // Create Stripe checkout session
     const session = await stripe.checkout.sessions.create({
@@ -77,7 +77,7 @@ const handler: Handler = async (event) => {
             currency: 'usd',
             product_data: {
               name: `${product.name} - ${size}`,
-              description: `Quantity: ${quantity}`,
+              description: `Quantity: ${quantity} pieces`,
               images: [product.image],
             },
             unit_amount: totalAmount * 100, // Convert to cents
