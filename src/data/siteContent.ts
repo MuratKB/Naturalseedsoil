@@ -125,7 +125,7 @@ export const faqGeneral = [
   },
   {
     question: 'Are your products certified organic?',
-    answer: 'We issue phytosanitary or heath certificates for oils for bulk.'
+    answer: 'We provide phytosanitary or health certificates for bulk oil shipments.'
   },
   {
     question: 'Can I request product samples?',
