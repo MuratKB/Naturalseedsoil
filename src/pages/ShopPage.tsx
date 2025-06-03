@@ -19,6 +19,7 @@ const SHIPPING_COUNTRIES = [
   { code: 'SG', name: 'Singapore' },
   { code: 'TW', name: 'Taiwan' },
   { code: 'KR', name: 'South Korea' },
+  { code: 'not-listed', name: 'Not listed? Please contact us' }
 ];
 
 const ShopPage: React.FC = () => {
@@ -41,6 +42,10 @@ const ShopPage: React.FC = () => {
     postalCode: '',
     phone: '',
   });
+
+  useEffect(() => {
+    document.title = 'Shop | Natural Essence Wholesale';
+  }, []);
 
   useEffect(() => {
     const productId = searchParams.get('product');
@@ -87,6 +92,15 @@ const ShopPage: React.FC = () => {
     setError(null);
   };
 
+  const handleCountryChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
+    const value = e.target.value;
+    if (value === 'not-listed') {
+      navigate('/contact?international=true');
+      return;
+    }
+    setFormData(prev => ({ ...prev, country: value }));
+  };
+
   const handleCheckoutSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
@@ -117,7 +131,7 @@ const ShopPage: React.FC = () => {
 
       const session = await createCheckoutSession(
         selectedProduct.id,
-        `${selectedSize.size}${selectedSize.unit}`,
+        `${selectedSize.size} ${selectedSize.unit}`,
         quantity,
         formData
       );
@@ -196,7 +210,7 @@ const ShopPage: React.FC = () => {
                           value={index}
                           disabled={!size.inStock || size.stockLevel === 0}
                         >
-                          {size.size}{size.unit} - {size.price ? 
+                          {size.size} {size.unit} - {size.price ? 
                             `$${size.price.toLocaleString()}` : 
                             'Contact for Bulk'} 
                           {size.stockLevel === 0 ? ' (Out of Stock)' : 
@@ -282,7 +296,7 @@ const ShopPage: React.FC = () => {
                   <div className="flex items-center justify-between mb-2">
                     <span className="font-medium">{selectedProduct.name}</span>
                     <span className="text-primary-600">
-                      {selectedSize.size}{selectedSize.unit} × {quantity}
+                      {selectedSize.size} {selectedSize.unit} × {quantity}
                     </span>
                   </div>
                   <div className="text-xl font-semibold text-right">
@@ -391,20 +405,19 @@ const ShopPage: React.FC = () => {
                       required
                       className="input"
                       value={formData.country}
-                      onChange={(e) => setFormData({...formData, country: e.target.value})}
+                      onChange={handleCountryChange}
                     >
                       <option value="">Select a country</option>
                       {SHIPPING_COUNTRIES.map(country => (
-                        <option key={country.code} value={country.code}>
+                        <option 
+                          key={country.code} 
+                          value={country.code}
+                          className={country.code === 'not-listed' ? 'font-medium text-primary-600' : ''}
+                        >
                           {country.name}
                         </option>
                       ))}
                     </select>
-                    {formData.country && !SHIPPING_COUNTRIES.find(c => c.code === formData.country) && (
-                      <p className="text-red-600 text-sm mt-1">
-                        For other countries, please contact us.
-                      </p>
-                    )}
                   </div>
 
                   <div>
@@ -454,7 +467,7 @@ const ShopPage: React.FC = () => {
                 <div className="flex items-center space-x-4">
                   <span className="font-medium">{selectedProduct.name}</span>
                   <span className="text-gray-600">
-                    {selectedSize.size}{selectedSize.unit}
+                    {selectedSize.size} {selectedSize.unit}
                   </span>
                   <div className="flex items-center space-x-2">
                     <label className="text-sm text-gray-600">Quantity:</label>
