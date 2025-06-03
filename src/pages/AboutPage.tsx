@@ -114,7 +114,7 @@ const AboutPage: React.FC = () => {
               {
                 title: 'Careful Sourcing',
                 description: 'We cultivate our own white sage, lavender, and rosemary, and craft Aleppo soap and black seed oil in our workshop.',
-                image: 'https://images.pexels.com/photos/3626622/pexels-photo-3626622.jpeg'
+                image: 'https://res.cloudinary.com/dbklhd9nn/image/upload/v1748956922/soap101_eprguq.jpg'
               },
               {
                 title: 'Seasonal Lab Testing',
@@ -124,12 +124,12 @@ const AboutPage: React.FC = () => {
               {
                 title: 'Quality Control',
                 description: 'Every batch is checked at multiple stages, from harvest to packaging, to ensure premium quality.',
-                image: 'https://images.pexels.com/photos/7723583/pexels-photo-7723583.jpeg'
+                image: 'https://res.cloudinary.com/dbklhd9nn/image/upload/v1748956921/Wsage101_u7r5rc.jpg'
               },
               {
                 title: 'Documentation',
                 description: 'All shipments include export documents. Health or phytosanitary certificates can be provided for bulk orders.',
-                image: 'https://images.pexels.com/photos/6883847/pexels-photo-6883847.jpeg'
+                image: 'https://res.cloudinary.com/dbklhd9nn/image/upload/v1748956919/LAV101_mn1jq4.jpg'
               },
             ].map((step, index) => (
               <div key={index} className="bg-white rounded-lg shadow-soft overflow-hidden">
