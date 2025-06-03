@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 import { Package, DollarSign, Mail, Truck, AlertCircle } from 'lucide-react';
 import { shopProducts } from '../data/shopProducts';
 import { ShopProduct, ProductSize, CheckoutFormData } from '../types/shop';
-import { Link, useSearchParams } from 'react-router-dom';
+import { Link, useSearchParams, useNavigate } from 'react-router-dom';
 import { stripePromise, createCheckoutSession } from '../utils/stripe';
 
 const SHIPPING_COUNTRIES = [
@@ -23,10 +23,13 @@ const SHIPPING_COUNTRIES = [
 
 const ShopPage: React.FC = () => {
   const [searchParams] = useSearchParams();
+  const navigate = useNavigate();
   const [selectedProduct, setSelectedProduct] = useState<ShopProduct | null>(null);
   const [selectedSize, setSelectedSize] = useState<ProductSize | null>(null);
   const [quantity, setQuantity] = useState<number>(0);
   const [showCheckout, setShowCheckout] = useState(false);
+  const [isProcessing, setIsProcessing] = useState(false);
+  const [error, setError] = useState<string | null>(null);
   const [formData, setFormData] = useState<CheckoutFormData>({
     name: '',
     email: '',
@@ -61,6 +64,7 @@ const ShopPage: React.FC = () => {
     setSelectedSize(size);
     setQuantity(product.minOrder || 1);
     setShowCheckout(false);
+    setError(null);
   };
 
   const handleQuantityChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -80,6 +84,7 @@ const ShopPage: React.FC = () => {
       return;
     }
     setShowCheckout(true);
+    setError(null);
   };
 
   const handleCheckoutSubmit = async (e: React.FormEvent) => {
@@ -91,17 +96,20 @@ const ShopPage: React.FC = () => {
 
     // Check stock availability
     if (!selectedSize.inStock || selectedSize.stockLevel < quantity) {
-      alert('Sorry, insufficient stock available.');
+      setError('Sorry, insufficient stock available.');
       return;
     }
 
-    try {
-      // Validate country
-      if (!SHIPPING_COUNTRIES.find(c => c.code === formData.country)) {
-        alert('For customers from unlisted countries, please contact us for a custom shipping quote and payment instructions.');
-        return;
-      }
+    // Validate country
+    if (!SHIPPING_COUNTRIES.find(c => c.code === formData.country)) {
+      setError('For customers from unlisted countries, please contact us for a custom shipping quote and payment instructions.');
+      return;
+    }
 
+    setIsProcessing(true);
+    setError(null);
+
+    try {
       const stripe = await stripePromise;
       if (!stripe) {
         throw new Error('Stripe failed to load');
@@ -121,9 +129,13 @@ const ShopPage: React.FC = () => {
       if (result.error) {
         throw new Error(result.error.message);
       }
+
+      // Redirect to success page will happen automatically
     } catch (error) {
       console.error('Error:', error);
-      alert('An error occurred. Please try again or contact support.');
+      setError('An error occurred while processing your payment. Please try again or contact support.');
+    } finally {
+      setIsProcessing(false);
     }
   };
 
@@ -250,12 +262,21 @@ const ShopPage: React.FC = () => {
                 <div className="flex justify-between items-center mb-6">
                   <h3 className="text-2xl font-semibold">Complete Your Order</h3>
                   <button
-                    onClick={() => setShowCheckout(false)}
+                    onClick={() => {
+                      setShowCheckout(false);
+                      setError(null);
+                    }}
                     className="text-gray-500 hover:text-gray-700"
                   >
                     ×
                   </button>
                 </div>
+
+                {error && (
+                  <div className="mb-6 p-4 bg-red-50 border border-red-200 rounded-lg text-red-600">
+                    {error}
+                  </div>
+                )}
 
                 <div className="mb-6 p-4 bg-gray-50 rounded-lg">
                   <div className="flex items-center justify-between mb-2">
@@ -401,11 +422,20 @@ const ShopPage: React.FC = () => {
 
                   <button 
                     type="submit" 
-                    className="btn-primary w-full"
-                    disabled={!SHIPPING_COUNTRIES.find(c => c.code === formData.country)}
+                    className={`btn-primary w-full ${isProcessing ? 'opacity-70 cursor-not-allowed' : ''}`}
+                    disabled={isProcessing || !SHIPPING_COUNTRIES.find(c => c.code === formData.country)}
                   >
-                    <DollarSign className="w-5 h-5 mr-2" />
-                    Complete Order
+                    {isProcessing ? (
+                      <span className="flex items-center justify-center">
+                        <span className="animate-spin mr-2">⌛</span>
+                        Processing...
+                      </span>
+                    ) : (
+                      <>
+                        <DollarSign className="w-5 h-5 mr-2" />
+                        Complete Order
+                      </>
+                    )}
                   </button>
 
                   <p className="text-sm text-gray-500 mt-4">
