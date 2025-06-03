@@ -64,9 +64,9 @@ const handler: Handler = async (event) => {
       };
     }
 
-    // Calculate total price - for smudge sticks, we use the price as is since it's already for 100pcs
+    // Calculate total price - for bundles (soaps and smudge sticks), we use the price as is since it's already for the bundle
     const unitPrice = sizeOption.price;
-    const totalAmount = unitPrice;
+    const totalAmount = ['soaps', 'sage'].includes(product.category) ? unitPrice : unitPrice * quantity;
 
     // Create Stripe checkout session
     const session = await stripe.checkout.sessions.create({

@@ -36,8 +36,20 @@ export const shopProducts: ShopProduct[] = [
     image: 'https://res.cloudinary.com/dbklhd9nn/image/upload/v1748765448/Alepposoap_ugwisi.jpg',
     category: 'soaps',
     sizes: [
-      { size: '100', unit: 'pcs', price: 195, inStock: true, stockLevel: 1500 },
-      { size: '300', unit: 'pcs', price: 540, inStock: true, stockLevel: 500 }
+      { 
+        size: '100', 
+        unit: 'pcs bundle', 
+        price: 195, 
+        inStock: true, 
+        stockLevel: 1500 
+      },
+      { 
+        size: '300', 
+        unit: 'pcs bundle', 
+        price: 540, 
+        inStock: true, 
+        stockLevel: 500 
+      }
     ],
     minOrder: 100
   },
