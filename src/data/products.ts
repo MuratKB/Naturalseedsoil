@@ -2,6 +2,114 @@ import { Product } from '../types';
 
 export const products: Product[] = [
   {
+    id: 'lavender-essential-oil',
+    name: 'Lavender Essential Oil',
+    shortDescription: 'Premium Lavandula angustifolia essential oil with high linalool content.',
+    description: 'Our Lavender Essential Oil is steam-distilled from carefully selected Lavandula angustifolia flowers grown in our own fields. Known for its calming and soothing properties, this premium oil features a high linalool content and characteristic sweet, floral aroma. Perfect for aromatherapy, natural perfumery, and skincare formulations.',
+    category: 'essential-oils',
+    imageUrl: 'https://res.cloudinary.com/dbklhd9nn/image/upload/v1748956919/LAV101_mn1jq4.jpg',
+    bulkOptions: [
+      { size: '1', unit: 'L' },
+      { size: '5', unit: 'L' },
+      { size: '10', unit: 'L' },
+      { size: '25', unit: 'L' }
+    ],
+    features: [
+      'Steam-distilled from Lavandula angustifolia',
+      'High linalool content',
+      'Sweet, floral aroma',
+      'Perfect for aromatherapy',
+      'Ideal for skincare formulations',
+      'Available in bulk quantities'
+    ],
+    faq: [
+      {
+        question: 'What is the linalool content?',
+        answer: 'Our lavender essential oil contains 35-45% linalool, which is optimal for therapeutic applications.'
+      },
+      {
+        question: 'Is it food grade?',
+        answer: 'Yes, our lavender essential oil is food-grade and comes with appropriate certification.'
+      },
+      {
+        question: 'What is the minimum order?',
+        answer: 'Minimum order is 1L. Bulk discounts start at 5L.'
+      }
+    ]
+  },
+  {
+    id: 'oregano-essential-oil',
+    name: 'Oregano Essential Oil',
+    shortDescription: 'High carvacrol content oregano oil, steam-distilled from wild oregano.',
+    description: 'Our Oregano Essential Oil is steam-distilled from wild-harvested Origanum vulgare, featuring a high carvacrol content. This potent oil is known for its strong antimicrobial properties and characteristic spicy, herbaceous aroma. Ideal for natural health products and therapeutic applications.',
+    category: 'essential-oils',
+    imageUrl: 'https://res.cloudinary.com/dbklhd9nn/image/upload/v1748956920/ORG101_qkjnwp.jpg',
+    bulkOptions: [
+      { size: '1', unit: 'L' },
+      { size: '5', unit: 'L' },
+      { size: '10', unit: 'L' },
+      { size: '25', unit: 'L' }
+    ],
+    features: [
+      'Steam-distilled from wild oregano',
+      'High carvacrol content (70-75%)',
+      'Strong, spicy aroma',
+      'Potent antimicrobial properties',
+      'Lab-tested for purity',
+      'Bulk quantities available'
+    ],
+    faq: [
+      {
+        question: 'What is the carvacrol percentage?',
+        answer: 'Our oregano essential oil contains 70-75% carvacrol, verified by GC-MS analysis.'
+      },
+      {
+        question: 'Is it organic certified?',
+        answer: 'Yes, our oregano is wild-harvested and certified organic.'
+      },
+      {
+        question: 'What is the minimum order?',
+        answer: 'Minimum order is 1L. Bulk discounts available for orders over 5L.'
+      }
+    ]
+  },
+  {
+    id: 'bay-leaf-essential-oil',
+    name: 'Bay Leaf Essential Oil',
+    shortDescription: 'Premium Laurus nobilis essential oil with high eucalyptol content.',
+    description: 'Our Bay Leaf Essential Oil is steam-distilled from fresh bay leaves harvested from mature trees grown in optimal climate conditions. This premium oil offers a rich, spicy aroma with subtle eucalyptus notes and is widely used in professional aromatherapy, luxury skincare formulations, and natural perfumery. Each batch is lab-tested for purity and potency.',
+    category: 'essential-oils',
+    imageUrl: 'https://res.cloudinary.com/dbklhd9nn/image/upload/v1748765539/bay_leaf_tlkctk.jpg',
+    bulkOptions: [
+      { size: '1', unit: 'L' },
+      { size: '5', unit: 'L' },
+      { size: '10', unit: 'L' },
+      { size: '25', unit: 'L' }
+    ],
+    features: [
+      'Steam-distilled from fresh leaves',
+      'High eucalyptol content',
+      'Rich, spicy aroma',
+      'Perfect for aromatherapy',
+      'Lab-tested for purity',
+      'Bulk quantities available'
+    ],
+    faq: [
+      {
+        question: 'What is the eucalyptol content?',
+        answer: 'Our bay leaf essential oil contains 30-35% eucalyptol (1,8-cineole).'
+      },
+      {
+        question: 'Do you provide test reports?',
+        answer: 'Yes, each batch comes with GC-MS analysis and Certificate of Analysis.'
+      },
+      {
+        question: 'What is the minimum order?',
+        answer: 'Minimum order is 1L. Volume discounts start at 5L.'
+      }
+    ]
+  },
+  {
     id: 'black-seed-oil',
     name: 'Black Seed Oil',
     shortDescription: 'Premium cold-pressed Nigella sativa oil with high thymoquinone content.',
