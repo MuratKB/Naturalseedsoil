@@ -49,25 +49,53 @@ export const shopProducts: ShopProduct[] = [
     category: 'sage',
     sizes: [
       { 
-        size: '100', 
-        unit: 'pcs', 
+        size: 'White Sage', 
+        unit: '100pcs', 
         price: 169, 
         inStock: true,
         stockLevel: 400
       },
       { 
-        size: '300', 
-        unit: 'pcs', 
-        price: 459, 
+        size: 'White Sage & Lavender', 
+        unit: '100pcs', 
+        price: 189, 
         inStock: true,
-        stockLevel: 133
+        stockLevel: 350
       },
       { 
-        size: '500', 
-        unit: 'pcs', 
-        price: 729, 
+        size: 'White Sage & Rosemary', 
+        unit: '100pcs', 
+        price: 189, 
         inStock: true,
-        stockLevel: 80
+        stockLevel: 300
+      },
+      { 
+        size: 'White Sage & Cedar', 
+        unit: '100pcs', 
+        price: 199, 
+        inStock: true,
+        stockLevel: 250
+      },
+      { 
+        size: 'White Sage & Eucalyptus', 
+        unit: '100pcs', 
+        price: 189, 
+        inStock: true,
+        stockLevel: 300
+      },
+      { 
+        size: 'White Sage & Rose Petals', 
+        unit: '100pcs', 
+        price: 209, 
+        inStock: true,
+        stockLevel: 200
+      },
+      { 
+        size: 'White Sage & Mixed Flowers', 
+        unit: '100pcs', 
+        price: 219, 
+        inStock: true,
+        stockLevel: 150
       }
     ],
     minOrder: 100
