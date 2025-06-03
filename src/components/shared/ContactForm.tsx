@@ -267,10 +267,6 @@ const ContactForm: React.FC<ContactFormProps> = ({ isQuote = false, productName 
               )}
             </button>
           </div>
-
-          <p className="text-sm text-gray-500 mt-4">
-            By completing this order, you agree to our terms of service and privacy policy.
-          </p>
         </form>
       )}
     </div>
