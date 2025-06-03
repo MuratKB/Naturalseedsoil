@@ -124,7 +124,7 @@ const AboutPage: React.FC = () => {
               {
                 title: 'Quality Control',
                 description: 'Every batch is checked at multiple stages, from harvest to packaging, to ensure premium quality.',
-                image: 'https://res.cloudinary.com/dbklhd9nn/image/upload/v1748956921/Wsage101_u7r5rc.jpg'
+                image: 'https://res.cloudinary.com/dbklhd9nn/image/upload/v1748956922/soap101_eprguq.jpg'
               },
               {
                 title: 'Documentation',
