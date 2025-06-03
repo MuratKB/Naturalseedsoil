@@ -56,46 +56,60 @@ export const shopProducts: ShopProduct[] = [
         stockLevel: 400
       },
       { 
-        size: 'White Sage & Lavender', 
+        size: 'Desert Sage', 
         unit: '100pcs', 
-        price: 189, 
+        price: 149, 
         inStock: true,
         stockLevel: 350
       },
       { 
-        size: 'White Sage & Rosemary', 
+        size: 'Dragon Blood', 
         unit: '100pcs', 
-        price: 189, 
+        price: 179, 
         inStock: true,
         stockLevel: 300
       },
       { 
-        size: 'White Sage & Cedar', 
+        size: 'Rosemary', 
         unit: '100pcs', 
-        price: 199, 
+        price: 159, 
+        inStock: true,
+        stockLevel: 350
+      },
+      { 
+        size: 'Lavender', 
+        unit: '100pcs', 
+        price: 149, 
+        inStock: true,
+        stockLevel: 300
+      },
+      { 
+        size: 'Eucalyptus', 
+        unit: '100pcs', 
+        price: 129, 
+        inStock: true,
+        stockLevel: 400
+      },
+      { 
+        size: 'Cedar', 
+        unit: '100pcs', 
+        price: 149, 
+        inStock: true,
+        stockLevel: 350
+      },
+      { 
+        size: 'Sage with Rose Petals', 
+        unit: '100pcs', 
+        price: 179, 
         inStock: true,
         stockLevel: 250
       },
       { 
-        size: 'White Sage & Eucalyptus', 
+        size: 'Sage with Flowers', 
         unit: '100pcs', 
-        price: 189, 
-        inStock: true,
-        stockLevel: 300
-      },
-      { 
-        size: 'White Sage & Rose Petals', 
-        unit: '100pcs', 
-        price: 209, 
+        price: 199, 
         inStock: true,
         stockLevel: 200
-      },
-      { 
-        size: 'White Sage & Mixed Flowers', 
-        unit: '100pcs', 
-        price: 219, 
-        inStock: true,
-        stockLevel: 150
       }
     ],
     minOrder: 100
