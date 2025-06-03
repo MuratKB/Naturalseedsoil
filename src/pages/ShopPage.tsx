@@ -440,7 +440,6 @@ const ShopPage: React.FC = () => {
 
                   <p className="text-sm text-gray-500 mt-4">
                     By completing this order, you agree to our terms of service and privacy policy.
-                    We'll contact you within 24 hours to arrange payment and confirm shipping details.
                   </p>
                 </form>
               </div>
