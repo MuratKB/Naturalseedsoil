@@ -23,6 +23,10 @@ export const createCheckoutSession = async (
       }),
     });
 
+    if (!response.ok) {
+      throw new Error('Payment session creation failed');
+    }
+
     const session = await response.json();
     
     if (session.error) {
