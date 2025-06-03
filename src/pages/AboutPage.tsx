@@ -32,13 +32,22 @@ const AboutPage: React.FC = () => {
           <div>
             <h2 className="text-3xl font-bold mb-4 font-display">Our Story</h2>
             <p className="text-gray-600 mb-4">
-              Founded in {companyInfo.yearEstablished}, {companyInfo.name} began as a small family operation with a simple mission: to connect artisan producers of natural oils and soaps with international markets.
+              Founded in {companyInfo.yearEstablished}, Natural Essence Wholesale began as a small family operation with a simple mission: to connect artisan producers of natural oils and soaps with international markets.
             </p>
             <p className="text-gray-600 mb-4">
-              With deep roots in traditional production methods and a commitment to quality, we've grown to become a trusted wholesale supplier to natural product brands across North America and Europe.
+              Today, we are proud to be producers, not just suppliers — managing our own white sage and lavender farms, as well as our Aleppo soap production facility in Turkey. With deep roots in traditional methods and a relentless commitment to quality, we've become a trusted wholesale partner for brands and retailers across North America, Europe, and the UK.
+            </p>
+            <p className="text-gray-600 mb-4">
+              We directly oversee every stage: from sustainable farming, careful harvesting, and traditional soap making, to rigorous lab testing, quality control, and international export documentation. By working closely with over 30 artisan partners, we ensure fair compensation for producers and premium products for our clients, always at competitive prices.
+            </p>
+            <p className="text-gray-600 mb-4">
+              We are a US-registered company with sales and customer support managed via our US office in Florida (FL). Production, warehousing, and export operations are based in Turkey.
+            </p>
+            <p className="text-gray-600 mb-4">
+              Our US office is for correspondence, sales, and support only. All fulfillment and manufacturing are handled directly from Turkey.
             </p>
             <p className="text-gray-600">
-              Today, we partner with over 30 artisan producers, ensuring they receive fair compensation while providing our international clients with premium products at competitive prices.
+              Our promise: Direct-from-farm and workshop natural oils and soaps, lab-tested for purity, shipped globally with full export documentation and support.
             </p>
           </div>
           <div className="relative rounded-lg overflow-hidden shadow-lg h-[400px]">
@@ -98,7 +107,7 @@ const AboutPage: React.FC = () => {
 
         {/* Quality Process */}
         <div className="mb-16">
-          <h2 className="text-3xl font-bold mb-8 text-center font-display">Our Quality Assurance Process</h2>
+          <h2 className="text-2xl font-semibold mb-8 text-center font-display">Our Quality Assurance Process</h2>
           
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             {[
