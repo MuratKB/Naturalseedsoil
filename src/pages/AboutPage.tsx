@@ -114,12 +114,12 @@ const AboutPage: React.FC = () => {
               {
                 title: 'Careful Sourcing',
                 description: 'We cultivate our own white sage, lavender, and rosemary, and craft Aleppo soap and black seed oil in our workshop.',
-                image: 'https://res.cloudinary.com/dbklhd9nn/image/upload/v1748956922/soap101_eprguq.jpg'
+                image: 'https://res.cloudinary.com/dbklhd9nn/image/upload/v1748956921/Wsage101_u7r5rc.jpg'
               },
               {
-                title: 'Seasonal Lab Testing',
+                title: 'Lab Testing',
                 description: 'We conduct lab tests on our products for purity and quality. Test reports are available upon request.',
-                image: 'https://images.pexels.com/photos/8326366/pexels-photo-8326366.jpeg'
+                image: 'https://res.cloudinary.com/dbklhd9nn/image/upload/v1748956923/BS0101_ka2vcg.jpg'
               },
               {
                 title: 'Quality Control',
