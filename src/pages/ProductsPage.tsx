@@ -53,6 +53,9 @@ const ProductsPage: React.FC = () => {
     'Rosemary Essential Oil (Officinalis)',
     'Bay Leaf Essential Oil (High Alpha Cineole)',
     'Sage Essential Oil (Officinalis)',
+    'Thyme Essential Oil (Thymus)',
+    'Eucalyptus Essential Oil (Globulus)',
+    'Peppermint Essential Oil (Mentha)',
   ];
 
   return (
@@ -167,23 +170,36 @@ const ProductsPage: React.FC = () => {
 
               {/* Right Sidebar - Essential Oils List */}
               {selectedCategory === 'essential-oils' && (
-                <div className="lg:w-64 flex-shrink-0">
+                <div className="lg:w-96 flex-shrink-0">
                   <div className="bg-white rounded-lg shadow-soft p-6 sticky top-24">
-                    <h3 className="font-semibold text-lg mb-4">Available Essential Oils</h3>
-                    <div className="space-y-3">
+                    <h3 className="font-semibold text-lg mb-6">Available Essential Oils</h3>
+                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-1 gap-4">
                       {essentialOils.map((oil, index) => (
-                        <div key={index} className="flex items-start">
-                          <CheckCircle2 className="w-5 h-5 text-primary-600 mt-0.5 mr-2 flex-shrink-0" />
+                        <div 
+                          key={index} 
+                          className="flex items-start bg-gray-50 rounded-lg p-3 hover:bg-primary-50 transition-colors"
+                        >
+                          <CheckCircle2 className="w-5 h-5 text-primary-600 mt-0.5 mr-3 flex-shrink-0" />
                           <span className="text-gray-700">{oil}</span>
                         </div>
                       ))}
-                      <p className="text-sm text-gray-600 mt-4 pt-4 border-t">
-                        If you're interested in any of these essential oils, please{' '}
-                        <a href="/contact" className="text-primary-600 hover:text-primary-700">
-                          contact us
-                        </a>{' '}
-                        via the contact form for more information or a quote.
+                    </div>
+                    <div className="mt-6 p-4 bg-primary-50 rounded-lg">
+                      <p className="text-gray-700">
+                        Interested in our essential oils? Contact us for:
                       </p>
+                      <ul className="mt-2 space-y-1 text-sm text-gray-600">
+                        <li>• Detailed specifications</li>
+                        <li>• Current pricing</li>
+                        <li>• Custom formulations</li>
+                        <li>• Bulk quantities</li>
+                      </ul>
+                      <a 
+                        href="/contact" 
+                        className="btn-primary w-full mt-4 text-center"
+                      >
+                        Request Quote
+                      </a>
                     </div>
                   </div>
                 </div>
