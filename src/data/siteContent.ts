@@ -4,8 +4,8 @@ export const companyInfo = {
   name: 'Natural Essence Wholesale',
   tagline: 'Premium Artisan Oils & Soaps for International B2B',
   description: 'Supplying premium natural oils, traditional soaps, and herbal products to businesses worldwide. Direct from artisan producers to your brand.',
-  yearEstablished: 2012,
-  email: 'contact@naturalessencewholesale.com',
+  yearEstablished: 2016,
+  email: 'sales@naturalseedoils.com',
   address: 'Antalya Organized Industrial Zone, 07190 Antalya, Turkey',
 };
 
@@ -124,7 +124,7 @@ export const faqGeneral = [
     answer: 'Yes, we provide comprehensive private label services including custom formulations, packaging, labeling, and branding. Minimum quantities apply for private label orders.'
   },
   {
-    question: 'Are your products certified organic?',
+    question: 'Do you provide certificates with your products?',
     answer: 'We provide phytosanitary or health certificates for bulk oil shipments.'
   },
   {
