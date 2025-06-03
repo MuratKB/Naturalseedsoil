@@ -1,7 +1,16 @@
 import { Handler } from '@netlify/functions';
 import Stripe from 'stripe';
-import { updateProductStock } from '../../src/utils/stock';
+import { initializeApp, cert } from 'firebase-admin/app';
+import { getFirestore } from 'firebase-admin/firestore';
 
+// Initialize Firebase Admin
+const serviceAccount = JSON.parse(process.env.FIREBASE_SERVICE_ACCOUNT!);
+
+initializeApp({
+  credential: cert(serviceAccount)
+});
+
+const db = getFirestore();
 const stripe = new Stripe(process.env.STRIPE_SECRET_KEY!, {
   apiVersion: '2023-10-16',
 });
@@ -40,12 +49,28 @@ const handler: Handler = async (event) => {
       // Extract product information from metadata
       const { productId, size, quantity } = session.metadata!;
       
-      // Update stock levels
-      await updateProductStock(
-        productId,
-        size,
-        parseInt(quantity)
-      );
+      // Update stock in Firestore
+      const stockRef = db.collection('product_stock').doc(`${productId}_${size}`);
+      
+      await db.runTransaction(async (transaction) => {
+        const stockDoc = await transaction.get(stockRef);
+        
+        if (!stockDoc.exists) {
+          throw new Error('Stock document does not exist');
+        }
+
+        const currentStock = stockDoc.data()!.stock_level;
+        const newStockLevel = currentStock - parseInt(quantity);
+
+        if (newStockLevel < 0) {
+          throw new Error('Insufficient stock');
+        }
+
+        transaction.update(stockRef, {
+          stock_level: newStockLevel,
+          updated_at: new Date()
+        });
+      });
     }
 
     return {
