@@ -68,7 +68,8 @@ const ProductsPage: React.FC = () => {
 
       <div className="container-custom py-12">
         <div className="flex flex-col lg:flex-row gap-8">
-          <div className="hidden lg:block w-64 flex-shrink-0 space-y-6">
+          {/* Left Sidebar - Categories */}
+          <div className="hidden lg:block w-64 flex-shrink-0">
             <div className="bg-white rounded-lg shadow-soft p-6">
               <h3 className="font-semibold text-lg mb-4">Categories</h3>
               <div className="space-y-2">
@@ -87,27 +88,6 @@ const ProductsPage: React.FC = () => {
                 ))}
               </div>
             </div>
-
-            {selectedCategory === 'essential-oils' && (
-              <div className="bg-white rounded-lg shadow-soft p-6">
-                <h3 className="font-semibold text-lg mb-4">Available Essential Oils</h3>
-                <div className="space-y-3">
-                  {essentialOils.map((oil, index) => (
-                    <div key={index} className="flex items-start">
-                      <CheckCircle2 className="w-5 h-5 text-primary-600 mt-0.5 mr-2 flex-shrink-0" />
-                      <span className="text-gray-700">{oil}</span>
-                    </div>
-                  ))}
-                  <p className="text-sm text-gray-600 mt-4 pt-4 border-t">
-                    If you're interested in any of these essential oils, please{' '}
-                    <a href="#contact" className="text-primary-600 hover:text-primary-700">
-                      contact us
-                    </a>{' '}
-                    via the contact form for more information or a quote.
-                  </p>
-                </div>
-              </div>
-            )}
           </div>
 
           <div className="lg:hidden mb-4">
@@ -140,24 +120,11 @@ const ProductsPage: React.FC = () => {
                     </button>
                   ))}
                 </div>
-
-                {selectedCategory === 'essential-oils' && (
-                  <div className="mt-4 pt-4 border-t">
-                    <h3 className="font-semibold text-lg mb-2">Available Essential Oils</h3>
-                    <div className="space-y-2">
-                      {essentialOils.map((oil, index) => (
-                        <div key={index} className="flex items-start">
-                          <CheckCircle2 className="w-4 h-4 text-primary-600 mt-0.5 mr-2 flex-shrink-0" />
-                          <span className="text-sm text-gray-700">{oil}</span>
-                        </div>
-                      ))}
-                    </div>
-                  </div>
-                )}
               </div>
             )}
           </div>
 
+          {/* Main Content */}
           <div className="flex-grow">
             <div className="mb-6 flex flex-col sm:flex-row justify-between items-start sm:items-center">
               <h2 className="text-2xl font-semibold">
@@ -170,32 +137,59 @@ const ProductsPage: React.FC = () => {
               </p>
             </div>
 
-            <motion.div
-              variants={containerVariants}
-              initial="hidden"
-              animate="visible"
-              className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6"
-            >
-              {filteredProducts.map((product) => (
-                <ProductCard 
-                  key={product.id} 
-                  product={product} 
-                  showShipping={true}
-                />
-              ))}
-            </motion.div>
+            <div className="flex flex-col lg:flex-row gap-8">
+              {/* Product Grid */}
+              <motion.div
+                variants={containerVariants}
+                initial="hidden"
+                animate="visible"
+                className="flex-grow grid grid-cols-1 sm:grid-cols-2 gap-6"
+              >
+                {filteredProducts.map((product) => (
+                  <ProductCard 
+                    key={product.id} 
+                    product={product} 
+                    showShipping={true}
+                  />
+                ))}
 
-            {filteredProducts.length === 0 && (
-              <div className="text-center py-16">
-                <p className="text-gray-500 text-lg mb-4">No products found in this category.</p>
-                <button
-                  onClick={() => setSelectedCategory('all')}
-                  className="btn-primary"
-                >
-                  View All Products
-                </button>
-              </div>
-            )}
+                {filteredProducts.length === 0 && (
+                  <div className="col-span-full text-center py-16">
+                    <p className="text-gray-500 text-lg mb-4">No products found in this category.</p>
+                    <button
+                      onClick={() => setSelectedCategory('all')}
+                      className="btn-primary"
+                    >
+                      View All Products
+                    </button>
+                  </div>
+                )}
+              </motion.div>
+
+              {/* Right Sidebar - Essential Oils List */}
+              {selectedCategory === 'essential-oils' && (
+                <div className="lg:w-64 flex-shrink-0">
+                  <div className="bg-white rounded-lg shadow-soft p-6 sticky top-24">
+                    <h3 className="font-semibold text-lg mb-4">Available Essential Oils</h3>
+                    <div className="space-y-3">
+                      {essentialOils.map((oil, index) => (
+                        <div key={index} className="flex items-start">
+                          <CheckCircle2 className="w-5 h-5 text-primary-600 mt-0.5 mr-2 flex-shrink-0" />
+                          <span className="text-gray-700">{oil}</span>
+                        </div>
+                      ))}
+                      <p className="text-sm text-gray-600 mt-4 pt-4 border-t">
+                        If you're interested in any of these essential oils, please{' '}
+                        <a href="/contact" className="text-primary-600 hover:text-primary-700">
+                          contact us
+                        </a>{' '}
+                        via the contact form for more information or a quote.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              )}
+            </div>
           </div>
         </div>
       </div>
