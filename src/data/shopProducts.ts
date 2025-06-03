@@ -38,92 +38,92 @@ export const shopProducts: ShopProduct[] = [
     sizes: [
       { 
         size: '100', 
-        unit: 'pcs bundle', 
+        unit: 'piece bundle', 
         price: 195, 
         inStock: true, 
         stockLevel: 1500 
       },
       { 
         size: '300', 
-        unit: 'pcs bundle', 
+        unit: 'piece bundle', 
         price: 540, 
         inStock: true, 
         stockLevel: 500 
       }
     ],
-    minOrder: 100
+    minOrder: 1
   },
   {
     id: 'smudge-sticks',
     name: 'Premium Smudge Sticks',
-    description: 'Hand-tied premium smudge bundles, 6 inches (15 cm). Minimum order: 100 pieces.',
+    description: 'Hand-tied premium smudge bundles, 6 inches (15 cm). Each bundle contains 100 pieces.',
     image: 'https://res.cloudinary.com/dbklhd9nn/image/upload/v1748765310/whitesage_ldctpt.jpg',
     category: 'sage',
     sizes: [
       { 
         size: 'White Sage', 
-        unit: '100pcs', 
+        unit: '100pc bundle', 
         price: 169, 
         inStock: true,
         stockLevel: 400
       },
       { 
         size: 'Desert Sage', 
-        unit: '100pcs', 
+        unit: '100pc bundle', 
         price: 149, 
         inStock: true,
         stockLevel: 350
       },
       { 
         size: 'Dragon Blood', 
-        unit: '100pcs', 
+        unit: '100pc bundle', 
         price: 179, 
         inStock: true,
         stockLevel: 300
       },
       { 
         size: 'Rosemary', 
-        unit: '100pcs', 
+        unit: '100pc bundle', 
         price: 159, 
         inStock: true,
         stockLevel: 350
       },
       { 
         size: 'Lavender', 
-        unit: '100pcs', 
+        unit: '100pc bundle', 
         price: 149, 
         inStock: true,
         stockLevel: 300
       },
       { 
         size: 'Eucalyptus', 
-        unit: '100pcs', 
+        unit: '100pc bundle', 
         price: 129, 
         inStock: true,
         stockLevel: 400
       },
       { 
         size: 'Cedar', 
-        unit: '100pcs', 
+        unit: '100pc bundle', 
         price: 149, 
         inStock: true,
         stockLevel: 350
       },
       { 
         size: 'Sage with Rose Petals', 
-        unit: '100pcs', 
+        unit: '100pc bundle', 
         price: 179, 
         inStock: true,
         stockLevel: 250
       },
       { 
         size: 'Sage with Flowers', 
-        unit: '100pcs', 
+        unit: '100pc bundle', 
         price: 199, 
         inStock: true,
         stockLevel: 200
       }
     ],
-    minOrder: 100
+    minOrder: 1
   }
 ];

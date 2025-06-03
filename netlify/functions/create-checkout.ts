@@ -49,7 +49,7 @@ const handler: Handler = async (event) => {
     if (product.minOrder && quantity < product.minOrder) {
       return {
         statusCode: 400,
-        body: JSON.stringify({ error: `Minimum order quantity is ${product.minOrder}` }),
+        body: JSON.stringify({ error: `Minimum order quantity is ${product.minOrder} bundle` }),
       };
     }
 
@@ -64,9 +64,8 @@ const handler: Handler = async (event) => {
       };
     }
 
-    // Calculate total price - for bundles (soaps and smudge sticks), we use the price as is since it's already for the bundle
-    const unitPrice = sizeOption.price;
-    const totalAmount = ['soaps', 'sage'].includes(product.category) ? unitPrice : unitPrice * quantity;
+    // Calculate total price - price is per bundle for soaps and sage products
+    const totalAmount = sizeOption.price * quantity;
 
     // Create Stripe checkout session
     const session = await stripe.checkout.sessions.create({
@@ -77,7 +76,7 @@ const handler: Handler = async (event) => {
             currency: 'usd',
             product_data: {
               name: `${product.name} - ${size}`,
-              description: `Quantity: ${quantity} pieces`,
+              description: `${quantity} bundle(s)`,
               images: [product.image],
             },
             unit_amount: totalAmount * 100, // Convert to cents
@@ -96,7 +95,7 @@ const handler: Handler = async (event) => {
         productId,
         size,
         quantity: quantity.toString(),
-        unitPrice: unitPrice.toString(),
+        unitPrice: sizeOption.price.toString(),
         totalAmount: totalAmount.toString(),
         customerName: customerInfo.name,
         customerCompany: customerInfo.company,
