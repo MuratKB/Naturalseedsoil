@@ -43,7 +43,7 @@ export const products: Product[] = [
     shortDescription: 'High carvacrol content oregano oil, steam-distilled from wild oregano.',
     description: 'Our Oregano Essential Oil is steam-distilled from wild-harvested Origanum vulgare, featuring a high carvacrol content. This potent oil is known for its strong antimicrobial properties and characteristic spicy, herbaceous aroma. Ideal for natural health products and therapeutic applications.',
     category: 'essential-oils',
-    imageUrl: 'https://res.cloudinary.com/dbklhd9nn/image/upload/v1748956920/ORG101_qkjnwp.jpg',
+    imageUrl: 'https://res.cloudinary.com/dbklhd9nn/image/upload/v1749047123/Oregano_seock6.jpg',
     bulkOptions: [
       { size: '1', unit: 'L' },
       { size: '5', unit: 'L' },

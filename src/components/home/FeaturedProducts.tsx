@@ -11,9 +11,6 @@ const FeaturedProducts: React.FC = () => {
     threshold: 0.1,
   });
 
-  // Select featured products (first 4 products)
-  const featuredProducts = products.slice(0, 4);
-
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
@@ -38,9 +35,9 @@ const FeaturedProducts: React.FC = () => {
           variants={containerVariants}
           initial="hidden"
           animate={inView ? 'visible' : 'hidden'}
-          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8"
+          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8"
         >
-          {featuredProducts.map((product) => (
+          {products.map((product) => (
             <ProductCard key={product.id} product={product} />
           ))}
         </motion.div>
