@@ -2,6 +2,45 @@ import { Product } from '../types';
 
 export const products: Product[] = [
   {
+    id: 'lavender-smudge',
+    name: 'Lavender Smudge',
+    shortDescription: 'Carefully crafted lavender smudge sticks for soothing energy and calming aromatherapy.',
+    description: 'Our Lavender Smudge Sticks are expertly hand-crafted using premium lavender blossoms, carefully harvested at peak potency. Each bundle is meticulously wrapped to ensure optimal burning and long-lasting aromatic properties. Perfect for aromatherapy, meditation practices, and creating calming environments. Available in various sizes and bulk quantities for retail and wholesale customers.',
+    category: 'sage',
+    imageUrl: 'https://res.cloudinary.com/dbklhd9nn/image/upload/v1748956919/LAV101_mn1jq4.jpg',
+    bulkOptions: [
+      { size: '100', unit: 'pcs' },
+      { size: '300', unit: 'pcs' },
+      { size: '500', unit: 'pcs' }
+    ],
+    features: [
+      'Responsibly sourced lavender blossoms',
+      'Expertly hand-wrapped bundles',
+      'High-quality, fragrant lavender',
+      'Perfect for aromatherapy',
+      'Consistent burning quality',
+      'Bulk quantities available'
+    ],
+    faq: [
+      {
+        question: 'How are your lavender smudge sticks made?',
+        answer: 'Each bundle is carefully hand-wrapped using premium lavender blossoms harvested at peak potency for optimal aromatherapy benefits.'
+      },
+      {
+        question: 'What sizes are available?',
+        answer: 'Our standard size is 6 inches (15cm). Custom sizes available for bulk orders.'
+      },
+      {
+        question: 'Do you offer mixed bundles?',
+        answer: 'Yes, we can combine lavender with white sage, cedar, or other herbs for custom orders.'
+      },
+      {
+        question: 'What is the minimum order?',
+        answer: 'Minimum order is 100 pieces. Volume discounts start at 300 pieces.'
+      }
+    ]
+  },
+  {
     id: 'lavender-essential-oil',
     name: 'Lavender Essential Oil',
     shortDescription: 'Premium Lavandula angustifolia essential oil with high linalool content.',
