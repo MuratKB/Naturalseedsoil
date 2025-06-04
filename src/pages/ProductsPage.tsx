@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { useSearchParams } from 'react-router-dom';
+import { useSearchParams, Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { Filter, CheckCircle2 } from 'lucide-react';
 import ProductCard from '../components/shared/ProductCard';
