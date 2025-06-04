@@ -7,7 +7,7 @@ export const products: Product[] = [
     shortDescription: 'Carefully crafted lavender smudge sticks for soothing energy and calming aromatherapy.',
     description: 'Our Lavender Smudge Sticks are expertly hand-crafted using premium lavender blossoms, carefully harvested at peak potency. Each bundle is meticulously wrapped to ensure optimal burning and long-lasting aromatic properties. Perfect for aromatherapy, meditation practices, and creating calming environments. Available in various sizes and bulk quantities for retail and wholesale customers.',
     category: 'sage',
-    imageUrl: 'https://res.cloudinary.com/dbklhd9nn/image/upload/v1748956919/LAV101_mn1jq4.jpg',
+    imageUrl: 'https://res.cloudinary.com/dbklhd9nn/image/upload/v1749048282/Lavanta101_bptne6.jpg',
     bulkOptions: [
       { size: '100', unit: 'pcs' },
       { size: '300', unit: 'pcs' },
