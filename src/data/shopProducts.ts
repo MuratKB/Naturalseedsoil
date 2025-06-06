@@ -5,7 +5,7 @@ export const shopProducts: ShopProduct[] = [
     id: 'lavender-smudge',
     name: 'Lavender Smudge Sticks',
     description: 'Hand-tied premium lavender smudge bundles, 6 inches (15 cm) each. Sold in boxes of 100 bundles.',
-    image: 'https://res.cloudinary.com/dbklhd9nn/image/upload/v1748956919/LAV101_mn1jq4.jpg',
+    image: 'https://res.cloudinary.com/dbklhd9nn/image/upload/v1749048282/Lavanta101_bptne6.jpg',
     category: 'sage',
     sizes: [
       { 
@@ -36,7 +36,7 @@ export const shopProducts: ShopProduct[] = [
     id: 'black-seed-oil',
     name: 'Black Seed Oil',
     description: 'Premium cold-pressed Nigella sativa oil with high thymoquinone content (2.2-2.4%). For higher TQ levels, please contact us.',
-    image: 'https://res.cloudinary.com/dbklhd9nn/image/upload/v1748709884/BSO_ncm4dp.jpg',
+    image: 'https://res.cloudinary.com/dbklhd9nn/image/upload/v1748956923/BS0101_ka2vcg.jpg',
     category: 'oils',
     sizes: [
       { size: '5', unit: 'L', price: 159, inStock: true, stockLevel: 300 },
@@ -50,7 +50,7 @@ export const shopProducts: ShopProduct[] = [
     id: 'laurel-berry-oil',
     name: 'Laurel Berry Oil',
     description: 'Traditional method from Turkey. Perfect for authentic Aleppo soap production.',
-    image: 'https://res.cloudinary.com/dbklhd9nn/image/upload/v1748765023/LBO_nkpvrn.jpg',
+    image: 'https://res.cloudinary.com/dbklhd9nn/image/upload/v1749190165/LBO_5_lt_rb710y.jpg',
     category: 'oils',
     sizes: [
       { size: '5', unit: 'L', price: 199, inStock: true, stockLevel: 100 },
